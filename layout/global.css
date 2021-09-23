@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'League Spartan';
+  src: local('League Spartan'),
+    url(~assets/Oxygen/Oxygen-Regular.ttf) format('truetype');
+}
+
+html {
+  font-family: 'League Spartan';
+}

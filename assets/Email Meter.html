@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:8123/benchmarks -->
+<html class="has-navbar-fixed-top" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale = 1.0"><title>Email Meter</title><!-- favicon--><link rel="icon" type="svg" sizes="32x32" href="http://localhost:8123/fav_32.99d39041.svg"><!-- Stripe JS--><link rel="preconnect" href="https://m.stripe.com/"><!-- Waffle feature flipper--><script async="" src="./Email Meter_files/gtm.js"></script><script src="./Email Meter_files/wafflejs"></script><!-- Google Tag Manager--><script>(function (w, d, s, l, i) {
+  w[l] = w[l] || [];
+  w[l].push({
+    'gtm.start': new Date().getTime(),
+    event: 'gtm.js'
+  });
+  var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+  j.async = true;
+  j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl + "&gtm_auth=".concat(undefined, "&gtm_preview=").concat(undefined, "&gtm_cookies_win=x");
+  f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', undefined);</script><!-- End Google Tag Manager--><!-- site stylesheets--><link rel="stylesheet" href="./Email Meter_files/main.b6459537.css" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;"><noscript><link rel="stylesheet" href="/main.b6459537.css"></noscript><script src="./Email Meter_files/cssrelpreload.min.5c081598.js"></script><script src="./Email Meter_files/main.b6459537.js"></script><link rel="stylesheet" href="./Email Meter_files/app.871a4408.css"><style type="text/css">.apexcharts-canvas {
+  position: relative;
+  user-select: none;
+  /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */
+}
+
+
+/* scrollbar is not visible by default for legend, hence forcing the visibility */
+.apexcharts-canvas ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+
+.apexcharts-canvas ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+
+.apexcharts-inner {
+  position: relative;
+}
+
+.apexcharts-text tspan {
+  font-family: inherit;
+}
+
+.legend-mouseover-inactive {
+  transition: 0.15s ease all;
+  opacity: 0.20;
+}
+
+.apexcharts-series-collapsed {
+  opacity: 0;
+}
+
+.apexcharts-tooltip {
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px -4px #999;
+  cursor: default;
+  font-size: 14px;
+  left: 62px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 12;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-tooltip.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light {
+  border: 1px solid #e3e3e3;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.apexcharts-tooltip.apexcharts-theme-dark {
+  color: #fff;
+  background: rgba(30, 30, 30, 0.8);
+}
+
+.apexcharts-tooltip * {
+  font-family: inherit;
+}
+
+
+.apexcharts-tooltip-title {
+  padding: 6px;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
+  background: #ECEFF1;
+  border-bottom: 1px solid #ddd;
+}
+
+.apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-title {
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid #333;
+}
+
+.apexcharts-tooltip-text-y-value,
+.apexcharts-tooltip-text-goals-value,
+.apexcharts-tooltip-text-z-value {
+  display: inline-block;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.apexcharts-tooltip-text-y-label:empty,
+.apexcharts-tooltip-text-y-value:empty,
+.apexcharts-tooltip-text-goals-label:empty,
+.apexcharts-tooltip-text-goals-value:empty,
+.apexcharts-tooltip-text-z-value:empty {
+  display: none;
+}
+
+.apexcharts-tooltip-text-y-value,
+.apexcharts-tooltip-text-goals-value,
+.apexcharts-tooltip-text-z-value {
+  font-weight: 600;
+}
+
+.apexcharts-tooltip-text-goals-label, 
+.apexcharts-tooltip-text-goals-value {
+  padding: 6px 0 5px;
+}
+
+.apexcharts-tooltip-goals-group, 
+.apexcharts-tooltip-text-goals-label, 
+.apexcharts-tooltip-text-goals-value {
+  display: flex;
+}
+.apexcharts-tooltip-text-goals-label:not(:empty),
+.apexcharts-tooltip-text-goals-value:not(:empty) {
+  margin-top: -6px;
+}
+
+.apexcharts-tooltip-marker {
+  width: 12px;
+  height: 12px;
+  position: relative;
+  top: 0px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.apexcharts-tooltip-series-group {
+  padding: 0 10px;
+  display: none;
+  text-align: left;
+  justify-content: left;
+  align-items: center;
+}
+
+.apexcharts-tooltip-series-group.apexcharts-active .apexcharts-tooltip-marker {
+  opacity: 1;
+}
+
+.apexcharts-tooltip-series-group.apexcharts-active,
+.apexcharts-tooltip-series-group:last-child {
+  padding-bottom: 4px;
+}
+
+.apexcharts-tooltip-series-group-hidden {
+  opacity: 0;
+  height: 0;
+  line-height: 0;
+  padding: 0 !important;
+}
+
+.apexcharts-tooltip-y-group {
+  padding: 6px 0 5px;
+}
+
+.apexcharts-tooltip-box, .apexcharts-custom-tooltip {
+  padding: 4px 8px;
+}
+
+.apexcharts-tooltip-boxPlot {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.apexcharts-tooltip-box>div {
+  margin: 4px 0;
+}
+
+.apexcharts-tooltip-box span.value {
+  font-weight: bold;
+}
+
+.apexcharts-tooltip-rangebar {
+  padding: 5px 8px;
+}
+
+.apexcharts-tooltip-rangebar .category {
+  font-weight: 600;
+  color: #777;
+}
+
+.apexcharts-tooltip-rangebar .series-name {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.apexcharts-xaxistooltip {
+  opacity: 0;
+  padding: 9px 10px;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  background: #ECEFF1;
+  border: 1px solid #90A4AE;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-xaxistooltip.apexcharts-theme-dark {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.apexcharts-xaxistooltip:after,
+.apexcharts-xaxistooltip:before {
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.apexcharts-xaxistooltip:after {
+  border-color: rgba(236, 239, 241, 0);
+  border-width: 6px;
+  margin-left: -6px;
+}
+
+.apexcharts-xaxistooltip:before {
+  border-color: rgba(144, 164, 174, 0);
+  border-width: 7px;
+  margin-left: -7px;
+}
+
+.apexcharts-xaxistooltip-bottom:after,
+.apexcharts-xaxistooltip-bottom:before {
+  bottom: 100%;
+}
+
+.apexcharts-xaxistooltip-top:after,
+.apexcharts-xaxistooltip-top:before {
+  top: 100%;
+}
+
+.apexcharts-xaxistooltip-bottom:after {
+  border-bottom-color: #ECEFF1;
+}
+
+.apexcharts-xaxistooltip-bottom:before {
+  border-bottom-color: #90A4AE;
+}
+
+.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:after {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:before {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-top:after {
+  border-top-color: #ECEFF1
+}
+
+.apexcharts-xaxistooltip-top:before {
+  border-top-color: #90A4AE;
+}
+
+.apexcharts-xaxistooltip-top.apexcharts-theme-dark:after {
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip-top.apexcharts-theme-dark:before {
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-xaxistooltip.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-yaxistooltip {
+  opacity: 0;
+  padding: 4px 10px;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  background: #ECEFF1;
+  border: 1px solid #90A4AE;
+}
+
+.apexcharts-yaxistooltip.apexcharts-theme-dark {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+.apexcharts-yaxistooltip:after,
+.apexcharts-yaxistooltip:before {
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.apexcharts-yaxistooltip:after {
+  border-color: rgba(236, 239, 241, 0);
+  border-width: 6px;
+  margin-top: -6px;
+}
+
+.apexcharts-yaxistooltip:before {
+  border-color: rgba(144, 164, 174, 0);
+  border-width: 7px;
+  margin-top: -7px;
+}
+
+.apexcharts-yaxistooltip-left:after,
+.apexcharts-yaxistooltip-left:before {
+  left: 100%;
+}
+
+.apexcharts-yaxistooltip-right:after,
+.apexcharts-yaxistooltip-right:before {
+  right: 100%;
+}
+
+.apexcharts-yaxistooltip-left:after {
+  border-left-color: #ECEFF1;
+}
+
+.apexcharts-yaxistooltip-left:before {
+  border-left-color: #90A4AE;
+}
+
+.apexcharts-yaxistooltip-left.apexcharts-theme-dark:after {
+  border-left-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-left.apexcharts-theme-dark:before {
+  border-left-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-right:after {
+  border-right-color: #ECEFF1;
+}
+
+.apexcharts-yaxistooltip-right:before {
+  border-right-color: #90A4AE;
+}
+
+.apexcharts-yaxistooltip-right.apexcharts-theme-dark:after {
+  border-right-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip-right.apexcharts-theme-dark:before {
+  border-right-color: rgba(0, 0, 0, 0.5);
+}
+
+.apexcharts-yaxistooltip.apexcharts-active {
+  opacity: 1;
+}
+
+.apexcharts-yaxistooltip-hidden {
+  display: none;
+}
+
+.apexcharts-xcrosshairs,
+.apexcharts-ycrosshairs {
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-xcrosshairs.apexcharts-active,
+.apexcharts-ycrosshairs.apexcharts-active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-ycrosshairs-hidden {
+  opacity: 0;
+}
+
+.apexcharts-selection-rect {
+  cursor: move;
+}
+
+.svg_select_boundingRect, .svg_select_points_rot {
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+.apexcharts-selection-rect + g .svg_select_boundingRect,
+.apexcharts-selection-rect + g .svg_select_points_rot {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.apexcharts-selection-rect + g .svg_select_points_l,
+.apexcharts-selection-rect + g .svg_select_points_r {
+  cursor: ew-resize;
+  opacity: 1;
+  visibility: visible;
+}
+
+.svg_select_points {
+  fill: #efefef;
+  stroke: #333;
+  rx: 2;
+}
+
+.apexcharts-svg.apexcharts-zoomable.hovering-zoom {
+  cursor: crosshair
+}
+
+.apexcharts-svg.apexcharts-zoomable.hovering-pan {
+  cursor: move
+}
+
+.apexcharts-zoom-icon,
+.apexcharts-zoomin-icon,
+.apexcharts-zoomout-icon,
+.apexcharts-reset-icon,
+.apexcharts-pan-icon,
+.apexcharts-selection-icon,
+.apexcharts-menu-icon,
+.apexcharts-toolbar-custom-icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  line-height: 24px;
+  color: #6E8192;
+  text-align: center;
+}
+
+.apexcharts-zoom-icon svg,
+.apexcharts-zoomin-icon svg,
+.apexcharts-zoomout-icon svg,
+.apexcharts-reset-icon svg,
+.apexcharts-menu-icon svg {
+  fill: #6E8192;
+}
+
+.apexcharts-selection-icon svg {
+  fill: #444;
+  transform: scale(0.76)
+}
+
+.apexcharts-theme-dark .apexcharts-zoom-icon svg,
+.apexcharts-theme-dark .apexcharts-zoomin-icon svg,
+.apexcharts-theme-dark .apexcharts-zoomout-icon svg,
+.apexcharts-theme-dark .apexcharts-reset-icon svg,
+.apexcharts-theme-dark .apexcharts-pan-icon svg,
+.apexcharts-theme-dark .apexcharts-selection-icon svg,
+.apexcharts-theme-dark .apexcharts-menu-icon svg,
+.apexcharts-theme-dark .apexcharts-toolbar-custom-icon svg {
+  fill: #f3f4f5;
+}
+
+.apexcharts-canvas .apexcharts-zoom-icon.apexcharts-selected svg,
+.apexcharts-canvas .apexcharts-selection-icon.apexcharts-selected svg,
+.apexcharts-canvas .apexcharts-reset-zoom-icon.apexcharts-selected svg {
+  fill: #008FFB;
+}
+
+.apexcharts-theme-light .apexcharts-selection-icon:not(.apexcharts-selected):hover svg,
+.apexcharts-theme-light .apexcharts-zoom-icon:not(.apexcharts-selected):hover svg,
+.apexcharts-theme-light .apexcharts-zoomin-icon:hover svg,
+.apexcharts-theme-light .apexcharts-zoomout-icon:hover svg,
+.apexcharts-theme-light .apexcharts-reset-icon:hover svg,
+.apexcharts-theme-light .apexcharts-menu-icon:hover svg {
+  fill: #333;
+}
+
+.apexcharts-selection-icon,
+.apexcharts-menu-icon {
+  position: relative;
+}
+
+.apexcharts-reset-icon {
+  margin-left: 5px;
+}
+
+.apexcharts-zoom-icon,
+.apexcharts-reset-icon,
+.apexcharts-menu-icon {
+  transform: scale(0.85);
+}
+
+.apexcharts-zoomin-icon,
+.apexcharts-zoomout-icon {
+  transform: scale(0.7)
+}
+
+.apexcharts-zoomout-icon {
+  margin-right: 3px;
+}
+
+.apexcharts-pan-icon {
+  transform: scale(0.62);
+  position: relative;
+  left: 1px;
+  top: 0px;
+}
+
+.apexcharts-pan-icon svg {
+  fill: #fff;
+  stroke: #6E8192;
+  stroke-width: 2;
+}
+
+.apexcharts-pan-icon.apexcharts-selected svg {
+  stroke: #008FFB;
+}
+
+.apexcharts-pan-icon:not(.apexcharts-selected):hover svg {
+  stroke: #333;
+}
+
+.apexcharts-toolbar {
+  position: absolute;
+  z-index: 11;
+  max-width: 176px;
+  text-align: right;
+  border-radius: 3px;
+  padding: 0px 6px 2px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apexcharts-menu {
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 3px;
+  right: 10px;
+  opacity: 0;
+  min-width: 110px;
+  transition: 0.15s ease all;
+  pointer-events: none;
+}
+
+.apexcharts-menu.apexcharts-menu-open {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-menu-item {
+  padding: 6px 7px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.apexcharts-theme-light .apexcharts-menu-item:hover {
+  background: #eee;
+}
+
+.apexcharts-theme-dark .apexcharts-menu {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .apexcharts-canvas:hover .apexcharts-toolbar {
+    opacity: 1;
+  }
+}
+
+.apexcharts-datalabel.apexcharts-element-hidden {
+  opacity: 0;
+}
+
+.apexcharts-pie-label,
+.apexcharts-datalabels,
+.apexcharts-datalabel,
+.apexcharts-datalabel-label,
+.apexcharts-datalabel-value {
+  cursor: default;
+  pointer-events: none;
+}
+
+.apexcharts-pie-label-delay {
+  opacity: 0;
+  animation-name: opaque;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+.apexcharts-canvas .apexcharts-element-hidden {
+  opacity: 0;
+}
+
+.apexcharts-hide .apexcharts-series-points {
+  opacity: 0;
+}
+
+.apexcharts-gridline,
+.apexcharts-annotation-rect,
+.apexcharts-tooltip .apexcharts-marker,
+.apexcharts-area-series .apexcharts-area,
+.apexcharts-line,
+.apexcharts-zoom-rect,
+.apexcharts-toolbar svg,
+.apexcharts-area-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
+.apexcharts-line-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
+.apexcharts-radar-series path,
+.apexcharts-radar-series polygon {
+  pointer-events: none;
+}
+
+
+/* markers */
+
+.apexcharts-marker {
+  transition: 0.15s ease all;
+}
+
+@keyframes opaque {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* Resize generated styles */
+
+@keyframes resizeanim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.resize-triggers {
+  animation: 1ms resizeanim;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.resize-triggers,
+.resize-triggers>div,
+.contract-trigger:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.resize-triggers>div {
+  background: #eee;
+  overflow: auto;
+}
+
+.contract-trigger:before {
+  width: 200%;
+  height: 200%;
+}</style><style type="text/css">.ti-tag-input[data-v-108f4f13] {
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  top: 0px;
+  position: absolute;
+  width: 100%;
+  line-height: inherit;
+}
+.ti-tag-input[data-v-108f4f13]::-ms-clear {
+  display: none;
+}
+input[data-v-108f4f13]:focus {
+  outline: none;
+}
+input[disabled][data-v-108f4f13] {
+  background-color: transparent;
+}
+
+/*# sourceURL=C:/Users/johan/dev/vue-tags-input/vue-tags-input/C:/Users/johan/dev/vue-tags-input/vue-tags-input/tag-input.vue */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6L1VzZXJzL2pvaGFuL2Rldi92dWUtdGFncy1pbnB1dC92dWUtdGFncy1pbnB1dC9DOi9Vc2Vycy9qb2hhbi9kZXYvdnVlLXRhZ3MtaW5wdXQvdnVlLXRhZ3MtaW5wdXQvdGFnLWlucHV0LnZ1ZSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDhCQUE4QjtFQUM5QixlQUFlO0VBQ2YsYUFBYTtFQUNiLGFBQWE7RUFDYixZQUFZO0VBQ1osY0FBYztFQUNkLFNBQVM7RUFDVCxtQkFBbUI7RUFDbkIsWUFBWTtFQUNaLHFCQUFxQjtDQUFFO0FBRXpCO0VBQ0UsY0FBYztDQUFFO0FBRWxCO0VBQ0UsY0FBYztDQUFFO0FBRWxCO0VBQ0UsOEJBQThCO0NBQUUiLCJmaWxlIjoidGFnLWlucHV0LnZ1ZT92dWUmdHlwZT1zdHlsZSZpbmRleD0wJmlkPTEwOGY0ZjEzJmxhbmc9Y3NzJnNjb3BlZD10cnVlJiIsInNvdXJjZXNDb250ZW50IjpbIi50aS10YWctaW5wdXQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgY29sb3I6IGluaGVyaXQ7XG4gIGJvcmRlcjogbm9uZTtcbiAgcGFkZGluZzogMHB4O1xuICBtYXJnaW46IDBweDtcbiAgZGlzcGxheTogZmxleDtcbiAgdG9wOiAwcHg7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgd2lkdGg6IDEwMCU7XG4gIGxpbmUtaGVpZ2h0OiBpbmhlcml0OyB9XG5cbi50aS10YWctaW5wdXQ6Oi1tcy1jbGVhciB7XG4gIGRpc3BsYXk6IG5vbmU7IH1cblxuaW5wdXQ6Zm9jdXMge1xuICBvdXRsaW5lOiBub25lOyB9XG5cbmlucHV0W2Rpc2FibGVkXSB7XG4gIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyB9XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style type="text/css">@font-face {
+  font-family: 'icomoon';
+  src: url(data:application/vnd.ms-fontobject;base64,aAUAAMQEAAABAAIAAAAAAAAAAAAAAAAAAAABAJABAAAAAExQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAUdPJHwAAAAAAAAAAAAAAAAAAAAAAAA4AaQBjAG8AbQBvAG8AbgAAAA4AUgBlAGcAdQBsAGEAcgAAABYAVgBlAHIAcwBpAG8AbgAgADEALgAwAAAADgBpAGMAbwBtAG8AbwBuAAAAAAAAAQAAAAsAgAADADBPUy8yDxIFrAAAALwAAABgY21hcBdW0okAAAEcAAAAVGdhc3AAAAAQAAABcAAAAAhnbHlmpZ+jMAAAAXgAAAD8aGVhZA/FmAgAAAJ0AAAANmhoZWEHgAPIAAACrAAAACRobXR4EgABvgAAAtAAAAAcbG9jYQCSAOIAAALsAAAAEG1heHAACQAfAAAC/AAAACBuYW1lmUoJ+wAAAxwAAAGGcG9zdAADAAAAAASkAAAAIAADA4ABkAAFAAACmQLMAAAAjwKZAswAAAHrADMBCQAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAEAAAOkCA8D/wABAA8AAQAAAAAEAAAAAAAAAAAAAACAAAAAAAAMAAAADAAAAHAABAAMAAAAcAAMAAQAAABwABAA4AAAACgAIAAIAAgABACDpAv/9//8AAAAAACDpAP/9//8AAf/jFwQAAwABAAAAAAAAAAAAAAABAAH//wAPAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAVgEBA74CgQAcAAABMhceARcWFwcmJy4BJyYjIgYHFyERFzY3PgE3NgIWSkNDbykpF2QQIB9VMzQ5P3AtnP6AmB0iIkspKAJVFxhSODlCIDMrKz4REislmgGAmhkVFBwICAABANYAgQMqAtUACwAAAQcXBycHJzcnNxc3Ayru7jzu7jzu7jzu7gKZ7u487u487u487u4AAQCSAIEDgAK9AAUAACUBFwEnNwGAAcQ8/gDuPPkBxDz+AO48AAAAAAEAAAAAAAAfydNRXw889QALBAAAAAAA1nUqGwAAAADWdSobAAAAAAO+AtUAAAAIAAIAAAAAAAAAAQAAA8D/wAAABAAAAAAAA74AAQAAAAAAAAAAAAAAAAAAAAcEAAAAAAAAAAAAAAACAAAABAAAVgQAANYEAACSAAAAAAAKABQAHgBQAGoAfgABAAAABwAdAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAADgCuAAEAAAAAAAEABwAAAAEAAAAAAAIABwBgAAEAAAAAAAMABwA2AAEAAAAAAAQABwB1AAEAAAAAAAUACwAVAAEAAAAAAAYABwBLAAEAAAAAAAoAGgCKAAMAAQQJAAEADgAHAAMAAQQJAAIADgBnAAMAAQQJAAMADgA9AAMAAQQJAAQADgB8AAMAAQQJAAUAFgAgAAMAAQQJAAYADgBSAAMAAQQJAAoANACkaWNvbW9vbgBpAGMAbwBtAG8AbwBuVmVyc2lvbiAxLjAAVgBlAHIAcwBpAG8AbgAgADEALgAwaWNvbW9vbgBpAGMAbwBtAG8AbwBuaWNvbW9vbgBpAGMAbwBtAG8AbwBuUmVndWxhcgBSAGUAZwB1AGwAYQByaWNvbW9vbgBpAGMAbwBtAG8AbwBuRm9udCBnZW5lcmF0ZWQgYnkgSWNvTW9vbi4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==);
+  src: url(data:application/vnd.ms-fontobject;base64,aAUAAMQEAAABAAIAAAAAAAAAAAAAAAAAAAABAJABAAAAAExQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAUdPJHwAAAAAAAAAAAAAAAAAAAAAAAA4AaQBjAG8AbQBvAG8AbgAAAA4AUgBlAGcAdQBsAGEAcgAAABYAVgBlAHIAcwBpAG8AbgAgADEALgAwAAAADgBpAGMAbwBtAG8AbwBuAAAAAAAAAQAAAAsAgAADADBPUy8yDxIFrAAAALwAAABgY21hcBdW0okAAAEcAAAAVGdhc3AAAAAQAAABcAAAAAhnbHlmpZ+jMAAAAXgAAAD8aGVhZA/FmAgAAAJ0AAAANmhoZWEHgAPIAAACrAAAACRobXR4EgABvgAAAtAAAAAcbG9jYQCSAOIAAALsAAAAEG1heHAACQAfAAAC/AAAACBuYW1lmUoJ+wAAAxwAAAGGcG9zdAADAAAAAASkAAAAIAADA4ABkAAFAAACmQLMAAAAjwKZAswAAAHrADMBCQAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAEAAAOkCA8D/wABAA8AAQAAAAAEAAAAAAAAAAAAAACAAAAAAAAMAAAADAAAAHAABAAMAAAAcAAMAAQAAABwABAA4AAAACgAIAAIAAgABACDpAv/9//8AAAAAACDpAP/9//8AAf/jFwQAAwABAAAAAAAAAAAAAAABAAH//wAPAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAVgEBA74CgQAcAAABMhceARcWFwcmJy4BJyYjIgYHFyERFzY3PgE3NgIWSkNDbykpF2QQIB9VMzQ5P3AtnP6AmB0iIkspKAJVFxhSODlCIDMrKz4REislmgGAmhkVFBwICAABANYAgQMqAtUACwAAAQcXBycHJzcnNxc3Ayru7jzu7jzu7jzu7gKZ7u487u487u487u4AAQCSAIEDgAK9AAUAACUBFwEnNwGAAcQ8/gDuPPkBxDz+AO48AAAAAAEAAAAAAAAfydNRXw889QALBAAAAAAA1nUqGwAAAADWdSobAAAAAAO+AtUAAAAIAAIAAAAAAAAAAQAAA8D/wAAABAAAAAAAA74AAQAAAAAAAAAAAAAAAAAAAAcEAAAAAAAAAAAAAAACAAAABAAAVgQAANYEAACSAAAAAAAKABQAHgBQAGoAfgABAAAABwAdAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAADgCuAAEAAAAAAAEABwAAAAEAAAAAAAIABwBgAAEAAAAAAAMABwA2AAEAAAAAAAQABwB1AAEAAAAAAAUACwAVAAEAAAAAAAYABwBLAAEAAAAAAAoAGgCKAAMAAQQJAAEADgAHAAMAAQQJAAIADgBnAAMAAQQJAAMADgA9AAMAAQQJAAQADgB8AAMAAQQJAAUAFgAgAAMAAQQJAAYADgBSAAMAAQQJAAoANACkaWNvbW9vbgBpAGMAbwBtAG8AbwBuVmVyc2lvbiAxLjAAVgBlAHIAcwBpAG8AbgAgADEALgAwaWNvbW9vbgBpAGMAbwBtAG8AbwBuaWNvbW9vbgBpAGMAbwBtAG8AbwBuUmVndWxhcgBSAGUAZwB1AGwAYQByaWNvbW9vbgBpAGMAbwBtAG8AbwBuRm9udCBnZW5lcmF0ZWQgYnkgSWNvTW9vbi4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==#iefix) format("embedded-opentype"), url(data:font/ttf;base64,AAEAAAALAIAAAwAwT1MvMg8SBawAAAC8AAAAYGNtYXAXVtKJAAABHAAAAFRnYXNwAAAAEAAAAXAAAAAIZ2x5ZqWfozAAAAF4AAAA/GhlYWQPxZgIAAACdAAAADZoaGVhB4ADyAAAAqwAAAAkaG10eBIAAb4AAALQAAAAHGxvY2EAkgDiAAAC7AAAABBtYXhwAAkAHwAAAvwAAAAgbmFtZZlKCfsAAAMcAAABhnBvc3QAAwAAAAAEpAAAACAAAwOAAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADpAgPA/8AAQAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAADAAAAAwAAABwAAQADAAAAHAADAAEAAAAcAAQAOAAAAAoACAACAAIAAQAg6QL//f//AAAAAAAg6QD//f//AAH/4xcEAAMAAQAAAAAAAAAAAAAAAQAB//8ADwABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAFYBAQO+AoEAHAAAATIXHgEXFhcHJicuAScmIyIGBxchERc2Nz4BNzYCFkpDQ28pKRdkECAfVTM0OT9wLZz+gJgdIiJLKSgCVRcYUjg5QiAzKys+ERIrJZoBgJoZFRQcCAgAAQDWAIEDKgLVAAsAAAEHFwcnByc3JzcXNwMq7u487u487u487u4Cme7uPO7uPO7uPO7uAAEAkgCBA4ACvQAFAAAlARcBJzcBgAHEPP4A7jz5AcQ8/gDuPAAAAAABAAAAAAAAH8nTUV8PPPUACwQAAAAAANZ1KhsAAAAA1nUqGwAAAAADvgLVAAAACAACAAAAAAAAAAEAAAPA/8AAAAQAAAAAAAO+AAEAAAAAAAAAAAAAAAAAAAAHBAAAAAAAAAAAAAAAAgAAAAQAAFYEAADWBAAAkgAAAAAACgAUAB4AUABqAH4AAQAAAAcAHQABAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA4ArgABAAAAAAABAAcAAAABAAAAAAACAAcAYAABAAAAAAADAAcANgABAAAAAAAEAAcAdQABAAAAAAAFAAsAFQABAAAAAAAGAAcASwABAAAAAAAKABoAigADAAEECQABAA4ABwADAAEECQACAA4AZwADAAEECQADAA4APQADAAEECQAEAA4AfAADAAEECQAFABYAIAADAAEECQAGAA4AUgADAAEECQAKADQApGljb21vb24AaQBjAG8AbQBvAG8AblZlcnNpb24gMS4wAFYAZQByAHMAaQBvAG4AIAAxAC4AMGljb21vb24AaQBjAG8AbQBvAG8Abmljb21vb24AaQBjAG8AbQBvAG8AblJlZ3VsYXIAUgBlAGcAdQBsAGEAcmljb21vb24AaQBjAG8AbQBvAG8AbkZvbnQgZ2VuZXJhdGVkIGJ5IEljb01vb24uAEYAbwBuAHQAIABnAGUAbgBlAHIAYQB0AGUAZAAgAGIAeQAgAEkAYwBvAE0AbwBvAG4ALgAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=) format("truetype"), url(data:font/woff;base64,d09GRgABAAAAAAUQAAsAAAAABMQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABPUy8yAAABCAAAAGAAAABgDxIFrGNtYXAAAAFoAAAAVAAAAFQXVtKJZ2FzcAAAAbwAAAAIAAAACAAAABBnbHlmAAABxAAAAPwAAAD8pZ+jMGhlYWQAAALAAAAANgAAADYPxZgIaGhlYQAAAvgAAAAkAAAAJAeAA8hobXR4AAADHAAAABwAAAAcEgABvmxvY2EAAAM4AAAAEAAAABAAkgDibWF4cAAAA0gAAAAgAAAAIAAJAB9uYW1lAAADaAAAAYYAAAGGmUoJ+3Bvc3QAAATwAAAAIAAAACAAAwAAAAMDgAGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAA6QIDwP/AAEADwABAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAwAAAAMAAAAcAAEAAwAAABwAAwABAAAAHAAEADgAAAAKAAgAAgACAAEAIOkC//3//wAAAAAAIOkA//3//wAB/+MXBAADAAEAAAAAAAAAAAAAAAEAAf//AA8AAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQBWAQEDvgKBABwAAAEyFx4BFxYXByYnLgEnJiMiBgcXIREXNjc+ATc2AhZKQ0NvKSkXZBAgH1UzNDk/cC2c/oCYHSIiSykoAlUXGFI4OUIgMysrPhESKyWaAYCaGRUUHAgIAAEA1gCBAyoC1QALAAABBxcHJwcnNyc3FzcDKu7uPO7uPO7uPO7uApnu7jzu7jzu7jzu7gABAJIAgQOAAr0ABQAAJQEXASc3AYABxDz+AO48+QHEPP4A7jwAAAAAAQAAAAAAAB/J01FfDzz1AAsEAAAAAADWdSobAAAAANZ1KhsAAAAAA74C1QAAAAgAAgAAAAAAAAABAAADwP/AAAAEAAAAAAADvgABAAAAAAAAAAAAAAAAAAAABwQAAAAAAAAAAAAAAAIAAAAEAABWBAAA1gQAAJIAAAAAAAoAFAAeAFAAagB+AAEAAAAHAB0AAQAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAOAK4AAQAAAAAAAQAHAAAAAQAAAAAAAgAHAGAAAQAAAAAAAwAHADYAAQAAAAAABAAHAHUAAQAAAAAABQALABUAAQAAAAAABgAHAEsAAQAAAAAACgAaAIoAAwABBAkAAQAOAAcAAwABBAkAAgAOAGcAAwABBAkAAwAOAD0AAwABBAkABAAOAHwAAwABBAkABQAWACAAAwABBAkABgAOAFIAAwABBAkACgA0AKRpY29tb29uAGkAYwBvAG0AbwBvAG5WZXJzaW9uIDEuMABWAGUAcgBzAGkAbwBuACAAMQAuADBpY29tb29uAGkAYwBvAG0AbwBvAG5pY29tb29uAGkAYwBvAG0AbwBvAG5SZWd1bGFyAFIAZQBnAHUAbABhAHJpY29tb29uAGkAYwBvAG0AbwBvAG5Gb250IGdlbmVyYXRlZCBieSBJY29Nb29uLgBGAG8AbgB0ACAAZwBlAG4AZQByAGEAdABlAGQAIABiAHkAIABJAGMAbwBNAG8AbwBuAC4AAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="ti-icon-"][data-v-61d92e31], [class*=" ti-icon-"][data-v-61d92e31] {
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ti-icon-check[data-v-61d92e31]:before {
+  content: "\e902";
+}
+.ti-icon-close[data-v-61d92e31]:before {
+  content: "\e901";
+}
+.ti-icon-undo[data-v-61d92e31]:before {
+  content: "\e900";
+}
+ul[data-v-61d92e31] {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+*[data-v-61d92e31], *[data-v-61d92e31]:before, *[data-v-61d92e31]:after {
+  box-sizing: border-box;
+}
+input[data-v-61d92e31]:focus {
+  outline: none;
+}
+input[disabled][data-v-61d92e31] {
+  background-color: transparent;
+}
+.vue-tags-input[data-v-61d92e31] {
+  max-width: 450px;
+  position: relative;
+  background-color: #fff;
+}
+div.vue-tags-input.disabled[data-v-61d92e31] {
+  opacity: 0.5;
+}
+div.vue-tags-input.disabled *[data-v-61d92e31] {
+    cursor: default;
+}
+.ti-input[data-v-61d92e31] {
+  border: 1px solid #ccc;
+  display: flex;
+  padding: 4px;
+  flex-wrap: wrap;
+}
+.ti-tags[data-v-61d92e31] {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  line-height: 1em;
+}
+.ti-tag[data-v-61d92e31] {
+  background-color: #5C6BC0;
+  color: #fff;
+  border-radius: 2px;
+  display: flex;
+  padding: 3px 5px;
+  margin: 2px;
+  font-size: .85em;
+}
+.ti-tag[data-v-61d92e31]:focus {
+    outline: none;
+}
+.ti-tag .ti-content[data-v-61d92e31] {
+    display: flex;
+    align-items: center;
+}
+.ti-tag .ti-tag-center[data-v-61d92e31] {
+    position: relative;
+}
+.ti-tag span[data-v-61d92e31] {
+    line-height: .85em;
+}
+.ti-tag span.ti-hidden[data-v-61d92e31] {
+    padding-left: 14px;
+    visibility: hidden;
+    height: 0px;
+    white-space: pre;
+}
+.ti-tag .ti-actions[data-v-61d92e31] {
+    margin-left: 2px;
+    display: flex;
+    align-items: center;
+    font-size: 1.15em;
+}
+.ti-tag .ti-actions i[data-v-61d92e31] {
+      cursor: pointer;
+}
+.ti-tag[data-v-61d92e31]:last-child {
+    margin-right: 4px;
+}
+.ti-tag.ti-invalid[data-v-61d92e31], .ti-tag.ti-tag.ti-deletion-mark[data-v-61d92e31] {
+    background-color: #e54d42;
+}
+.ti-new-tag-input-wrapper[data-v-61d92e31] {
+  display: flex;
+  flex: 1 0 auto;
+  padding: 3px 5px;
+  margin: 2px;
+  font-size: .85em;
+}
+.ti-new-tag-input-wrapper input[data-v-61d92e31] {
+    flex: 1 0 auto;
+    min-width: 100px;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
+.ti-new-tag-input[data-v-61d92e31] {
+  line-height: initial;
+}
+.ti-autocomplete[data-v-61d92e31] {
+  border: 1px solid #ccc;
+  border-top: none;
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+  z-index: 20;
+}
+.ti-item > div[data-v-61d92e31] {
+  cursor: pointer;
+  padding: 3px 6px;
+  width: 100%;
+}
+.ti-selected-item[data-v-61d92e31] {
+  background-color: #5C6BC0;
+  color: #fff;
+}
+
+/*# sourceURL=C:/Users/johan/dev/vue-tags-input/vue-tags-input/C:/Users/johan/dev/vue-tags-input/vue-tags-input/vue-tags-input.scss */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6L1VzZXJzL2pvaGFuL2Rldi92dWUtdGFncy1pbnB1dC92dWUtdGFncy1pbnB1dC9DOi9Vc2Vycy9qb2hhbi9kZXYvdnVlLXRhZ3MtaW5wdXQvdnVlLXRhZ3MtaW5wdXQvdnVlLXRhZ3MtaW5wdXQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHVCQUF1QjtFQUN2QixtQ0FBOEM7RUFDOUMsK0pBQXVNO0VBQ3ZNLG9CQUFvQjtFQUNwQixtQkFBbUI7Q0FBRTtBQUV2QjtFQUNFLGtDQUFrQztFQUNsQyxZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLG9CQUFvQjtFQUNwQixxQkFBcUI7RUFDckIscUJBQXFCO0VBQ3JCLGVBQWU7RUFDZixvQ0FBb0M7RUFDcEMsbUNBQW1DO0NBQUU7QUFFdkM7RUFDRSxpQkFBaUI7Q0FBRTtBQUVyQjtFQUNFLGlCQUFpQjtDQUFFO0FBRXJCO0VBQ0UsaUJBQWlCO0NBQUU7QUFFckI7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLHNCQUFzQjtDQUFFO0FBRTFCO0VBQ0UsdUJBQXVCO0NBQUU7QUFFM0I7RUFDRSxjQUFjO0NBQUU7QUFFbEI7RUFDRSw4QkFBOEI7Q0FBRTtBQUVsQztFQUNFLGlCQUFpQjtFQUNqQixtQkFBbUI7RUFDbkIsdUJBQXVCO0NBQUU7QUFFM0I7RUFDRSxhQUFhO0NBQUU7QUFDZjtJQUNFLGdCQUFnQjtDQUFFO0FBRXRCO0VBQ0UsdUJBQXVCO0VBQ3ZCLGNBQWM7RUFDZCxhQUFhO0VBQ2IsZ0JBQWdCO0NBQUU7QUFFcEI7RUFDRSxjQUFjO0VBQ2QsZ0JBQWdCO0VBQ2hCLFlBQVk7RUFDWixpQkFBaUI7Q0FBRTtBQUVyQjtFQUNFLDBCQUEwQjtFQUMxQixZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLGNBQWM7RUFDZCxpQkFBaUI7RUFDakIsWUFBWTtFQUNaLGlCQUFpQjtDQUFFO0FBQ25CO0lBQ0UsY0FBYztDQUFFO0FBQ2xCO0lBQ0UsY0FBYztJQUNkLG9CQUFvQjtDQUFFO0FBQ3hCO0lBQ0UsbUJBQW1CO0NBQUU7QUFDdkI7SUFDRSxtQkFBbUI7Q0FBRTtBQUN2QjtJQUNFLG1CQUFtQjtJQUNuQixtQkFBbUI7SUFDbkIsWUFBWTtJQUNaLGlCQUFpQjtDQUFFO0FBQ3JCO0lBQ0UsaUJBQWlCO0lBQ2pCLGNBQWM7SUFDZCxvQkFBb0I7SUFDcEIsa0JBQWtCO0NBQUU7QUFDcEI7TUFDRSxnQkFBZ0I7Q0FBRTtBQUN0QjtJQUNFLGtCQUFrQjtDQUFFO0FBQ3RCO0lBQ0UsMEJBQTBCO0NBQUU7QUFFaEM7RUFDRSxjQUFjO0VBQ2QsZUFBZTtFQUNmLGlCQUFpQjtFQUNqQixZQUFZO0VBQ1osaUJBQWlCO0NBQUU7QUFDbkI7SUFDRSxlQUFlO0lBQ2YsaUJBQWlCO0lBQ2pCLGFBQWE7SUFDYixhQUFhO0lBQ2IsWUFBWTtDQUFFO0FBRWxCO0VBQ0UscUJBQXFCO0NBQUU7QUFFekI7RUFDRSx1QkFBdUI7RUFDdkIsaUJBQWlCO0VBQ2pCLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1osdUJBQXVCO0VBQ3ZCLFlBQVk7Q0FBRTtBQUVoQjtFQUNFLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsWUFBWTtDQUFFO0FBRWhCO0VBQ0UsMEJBQTBCO0VBQzFCLFlBQVk7Q0FBRSIsImZpbGUiOiJ2dWUtdGFncy1pbnB1dC5zY3NzP3Z1ZSZ0eXBlPXN0eWxlJmluZGV4PTAmaWQ9NjFkOTJlMzEmbGFuZz1zY3NzJnNjb3BlZD10cnVlJiIsInNvdXJjZXNDb250ZW50IjpbIkBmb250LWZhY2Uge1xuICBmb250LWZhbWlseTogJ2ljb21vb24nO1xuICBzcmM6IHVybChcIi4vYXNzZXRzL2ZvbnRzL2ljb21vb24uZW90PzdncmxzZVwiKTtcbiAgc3JjOiB1cmwoXCIuL2Fzc2V0cy9mb250cy9pY29tb29uLmVvdD83Z3Jsc2UjaWVmaXhcIikgZm9ybWF0KFwiZW1iZWRkZWQtb3BlbnR5cGVcIiksIHVybChcIi4vYXNzZXRzL2ZvbnRzL2ljb21vb24udHRmPzdncmxzZVwiKSBmb3JtYXQoXCJ0cnVldHlwZVwiKSwgdXJsKFwiLi9hc3NldHMvZm9udHMvaWNvbW9vbi53b2ZmPzdncmxzZVwiKSBmb3JtYXQoXCJ3b2ZmXCIpO1xuICBmb250LXdlaWdodDogbm9ybWFsO1xuICBmb250LXN0eWxlOiBub3JtYWw7IH1cblxuW2NsYXNzXj1cInRpLWljb24tXCJdLCBbY2xhc3MqPVwiIHRpLWljb24tXCJdIHtcbiAgZm9udC1mYW1pbHk6ICdpY29tb29uJyAhaW1wb3J0YW50O1xuICBzcGVhazogbm9uZTtcbiAgZm9udC1zdHlsZTogbm9ybWFsO1xuICBmb250LXdlaWdodDogbm9ybWFsO1xuICBmb250LXZhcmlhbnQ6IG5vcm1hbDtcbiAgdGV4dC10cmFuc2Zvcm06IG5vbmU7XG4gIGxpbmUtaGVpZ2h0OiAxO1xuICAtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcbiAgLW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTsgfVxuXG4udGktaWNvbi1jaGVjazpiZWZvcmUge1xuICBjb250ZW50OiBcIlxcZTkwMlwiOyB9XG5cbi50aS1pY29uLWNsb3NlOmJlZm9yZSB7XG4gIGNvbnRlbnQ6IFwiXFxlOTAxXCI7IH1cblxuLnRpLWljb24tdW5kbzpiZWZvcmUge1xuICBjb250ZW50OiBcIlxcZTkwMFwiOyB9XG5cbnVsIHtcbiAgbWFyZ2luOiAwcHg7XG4gIHBhZGRpbmc6IDBweDtcbiAgbGlzdC1zdHlsZS10eXBlOiBub25lOyB9XG5cbiosICo6YmVmb3JlLCAqOmFmdGVyIHtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDsgfVxuXG5pbnB1dDpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7IH1cblxuaW5wdXRbZGlzYWJsZWRdIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7IH1cblxuLnZ1ZS10YWdzLWlucHV0IHtcbiAgbWF4LXdpZHRoOiA0NTBweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmOyB9XG5cbmRpdi52dWUtdGFncy1pbnB1dC5kaXNhYmxlZCB7XG4gIG9wYWNpdHk6IDAuNTsgfVxuICBkaXYudnVlLXRhZ3MtaW5wdXQuZGlzYWJsZWQgKiB7XG4gICAgY3Vyc29yOiBkZWZhdWx0OyB9XG5cbi50aS1pbnB1dCB7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIHBhZGRpbmc6IDRweDtcbiAgZmxleC13cmFwOiB3cmFwOyB9XG5cbi50aS10YWdzIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC13cmFwOiB3cmFwO1xuICB3aWR0aDogMTAwJTtcbiAgbGluZS1oZWlnaHQ6IDFlbTsgfVxuXG4udGktdGFnIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzVDNkJDMDtcbiAgY29sb3I6ICNmZmY7XG4gIGJvcmRlci1yYWRpdXM6IDJweDtcbiAgZGlzcGxheTogZmxleDtcbiAgcGFkZGluZzogM3B4IDVweDtcbiAgbWFyZ2luOiAycHg7XG4gIGZvbnQtc2l6ZTogLjg1ZW07IH1cbiAgLnRpLXRhZzpmb2N1cyB7XG4gICAgb3V0bGluZTogbm9uZTsgfVxuICAudGktdGFnIC50aS1jb250ZW50IHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7IH1cbiAgLnRpLXRhZyAudGktdGFnLWNlbnRlciB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlOyB9XG4gIC50aS10YWcgc3BhbiB7XG4gICAgbGluZS1oZWlnaHQ6IC44NWVtOyB9XG4gIC50aS10YWcgc3Bhbi50aS1oaWRkZW4ge1xuICAgIHBhZGRpbmctbGVmdDogMTRweDtcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XG4gICAgaGVpZ2h0OiAwcHg7XG4gICAgd2hpdGUtc3BhY2U6IHByZTsgfVxuICAudGktdGFnIC50aS1hY3Rpb25zIHtcbiAgICBtYXJnaW4tbGVmdDogMnB4O1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBmb250LXNpemU6IDEuMTVlbTsgfVxuICAgIC50aS10YWcgLnRpLWFjdGlvbnMgaSB7XG4gICAgICBjdXJzb3I6IHBvaW50ZXI7IH1cbiAgLnRpLXRhZzpsYXN0LWNoaWxkIHtcbiAgICBtYXJnaW4tcmlnaHQ6IDRweDsgfVxuICAudGktdGFnLnRpLWludmFsaWQsIC50aS10YWcudGktdGFnLnRpLWRlbGV0aW9uLW1hcmsge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICNlNTRkNDI7IH1cblxuLnRpLW5ldy10YWctaW5wdXQtd3JhcHBlciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXg6IDEgMCBhdXRvO1xuICBwYWRkaW5nOiAzcHggNXB4O1xuICBtYXJnaW46IDJweDtcbiAgZm9udC1zaXplOiAuODVlbTsgfVxuICAudGktbmV3LXRhZy1pbnB1dC13cmFwcGVyIGlucHV0IHtcbiAgICBmbGV4OiAxIDAgYXV0bztcbiAgICBtaW4td2lkdGg6IDEwMHB4O1xuICAgIGJvcmRlcjogbm9uZTtcbiAgICBwYWRkaW5nOiAwcHg7XG4gICAgbWFyZ2luOiAwcHg7IH1cblxuLnRpLW5ldy10YWctaW5wdXQge1xuICBsaW5lLWhlaWdodDogaW5pdGlhbDsgfVxuXG4udGktYXV0b2NvbXBsZXRlIHtcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcbiAgYm9yZGVyLXRvcDogbm9uZTtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB3aWR0aDogMTAwJTtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcbiAgei1pbmRleDogMjA7IH1cblxuLnRpLWl0ZW0gPiBkaXYge1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIHBhZGRpbmc6IDNweCA2cHg7XG4gIHdpZHRoOiAxMDAlOyB9XG5cbi50aS1zZWxlY3RlZC1pdGVtIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzVDNkJDMDtcbiAgY29sb3I6ICNmZmY7IH1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style></head><body><noscript><iframe id="gtm-iframe" height="0" width="0" style="display:none;
+
+visibility:hidden"></iframe></noscript><div id="emailmeter-app"><div id="page" class="is-flex flex-1 flex-col has-top-bar"><div data-v-d28cd1="" class="top-notification is-flex justify-center items-center p-3 w-full has-background-enterprise has-text-white"><div data-v-d28cd1="" class="mr-4"><span data-v-d28cd1="">Secure. <b>Purpose-built for Enterprise.</b> Make data-driven decisions on your company's email</span></div> <a data-v-d28cd1="" target="_blank" href="https://emailmeter.com/enterprise?utm_source=product&amp;utm_medium=secure&amp;utm_campaign=topbar" class="button is-small rounded is-white is-outlined"><b data-v-d28cd1="">Request a Demo</b></a></div> <nav data-v-a5a10f="" role="navigation" aria-label="dropdown navigation" class="navbar is-fixed-top"><div data-v-a5a10f="" class="container is-fluid"><div data-v-a5a10f="" class="navbar-brand"><a data-v-a5a10f="" href="http://localhost:8123/" class="navbar-item router-link-active"><img data-v-a5a10f="" src="./Email Meter_files/logo.33f9f8cc.svg" alt="Email Meter" class="logo"></a> <div data-v-ae3d33="" data-v-a5a10f="" class="my-auto"><div data-v-782801="" data-v-ae3d33="" class="product-pill team animated"><span data-v-782801=""> TEAMS (9)</span></div> <!----></div> <div data-v-a5a10f="" class="navbar-burger"><a data-v-a5a10f="" role="button" aria-label="menu" aria-expanded="false" class="navbar-link is-arrowless is-flex items-center"><figure data-v-a5a10f="" class="image is-40x40 mr-2"><img data-v-a5a10f="" src="./Email Meter_files/The-11-inch-promotional-koala-bear-plush.jpg_50x50.jpg" alt="Profile image" class="is-rounded is-40x40"></figure> <i data-v-a5a10f="" class="em-icon dropdown"></i></a></div></div> <div data-v-a5a10f="" class="navbar-menu"><div data-v-a5a10f="" class="navbar-end"><a data-v-a5a10f="" href="https://help.emailmeter.com/" aria-label="Help Center" target="_blank" rel="noopener" class="navbar-item"><span data-v-a5a10f="" class="icon is-medium"><i data-v-a5a10f="" class="em-icon menu-help is-size-4"></i></span></a> <div data-v-a5a10f="" class="navbar-item has-dropdown is-hoverable"><a data-v-a5a10f="" class="navbar-link is-arrowless is-hidden-touch"><figure data-v-a5a10f="" class="image is-40x40 mr-2"><img data-v-a5a10f="" src="./Email Meter_files/The-11-inch-promotional-koala-bear-plush.jpg_50x50.jpg" alt="Profile image" class="is-rounded is-40x40"></figure> <div data-v-a5a10f="" class="mr-4"><span data-v-a5a10f="" class="has-text-weight-bold">Angry Koala &amp; CO</span><br data-v-a5a10f="">
+                            angry@koala.com
+                        </div> <i data-v-a5a10f="" class="em-icon dropdown"></i></a> <div data-v-a5a10f="" class="navbar-dropdown flex-col flex-1 is-flex-touch"><!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <div data-v-a5a10f="" class="feedback mb-1"><a data-v-a5a10f="" href="https://portal.productboard.com/emailmeter/1-email-meter-feedback-board" target="_blank" class="navbar-item mb-1"><i data-v-a5a10f="" class="em-icon feedback mr-2"></i>
+                                Share Feedback
+                            </a> <hr data-v-a5a10f="" class="navbar-divider mx-6 is-block"></div> <a data-v-a5a10f="" href="http://localhost:8123/logout" class="navbar-item"><i data-v-a5a10f="" class="em-icon logout mr-2"></i>
+                            Logout
+                        </a> <!----> <!----></div></div></div></div></div></nav> <div><nav data-v-875e07="" id="main-menu" class="z-50"><div data-v-875e07="" class="menu"><ul data-v-875e07="" class="menu-list"><li data-v-875e07="" class=""><a data-v-875e07="" href="http://localhost:8123/report/custom" class="is-flex flex-col"><i data-v-875e07="" class="em-icon menu-monthly-report mb-2 mt-1"></i>
+                    Report
+                </a></li> <li data-v-875e07="" class=""><a data-v-875e07="" href="http://localhost:8123/team" class="is-flex flex-col"><i data-v-875e07="" class="em-icon menu-team mb-2"></i> <span data-v-875e07="">My Team</span></a></li> <li data-v-875e07=""><a data-v-875e07="" class="delegated-accounts is-flex flex-col has-text-centered"><i data-v-875e07="" class="em-icon menu-delegated-accounts mb-2"></i> <span data-v-875e07="">Delegated Inboxes</span></a></li> <!----> <li data-v-875e07="" class="relative"><a data-v-875e07="" class="is-flex flex-col has-text-centered yearly-report"><i data-v-875e07="" class="em-icon menu-weekly-report mb-2"></i> <span data-v-875e07="">Custom Metrics</span></a> <!----></li> <li data-v-875e07="" class="router-link-exact-active is-active"><a data-v-875e07="" href="http://localhost:8123/benchmarks" class="is-flex flex-col"><i data-v-875e07="" class="em-icon graph mb-2"></i> <span data-v-875e07="">Benchmarks</span></a></li></ul> <ul data-v-875e07="" class="push-bottom menu-list"><!----> <li data-v-875e07="" class=""><a data-v-875e07="" aria-label="My Account" href="http://localhost:8123/account"><i data-v-875e07="" class="em-icon menu-user"></i></a></li> <li data-v-875e07="" class=""><a data-v-875e07="" aria-label="Settings" href="http://localhost:8123/settings"><i data-v-875e07="" class="em-icon menu-settings"></i></a></li></ul></div></nav> <div class="main-container z-0 has-top-bar"><div data-v-c9f66b=""><!----> <section data-v-c9f66b="" id="benchmark" class="section"><div data-v-c9f66b="" class="border-bottom mb-10 flex"><h1 data-v-c9f66b="" class="font-semibold flex-1 py-2 text-3xl ">Email Performance Benchmarks</h1> <div data-v-c9f66b="" class="relative"><div data-v-c9f66b="" class="has-background-white rounded px-4 py-1 cursor-pointer date-value flex"><p data-v-c9f66b="" class="flex-1 my-auto">August 2021</p> <i data-v-c9f66b="" class="em-icon date ml-20 my-auto"></i></div> <!----></div></div> <div data-v-c9f66b="" class="columns gap-4"><div data-v-c9f66b="" class="column is-one-third pl-3 pr-0 realtive"><div data-v-c9f66b="" class="sticky top-24"><p data-v-c9f66b="" class="text-xs text-gray-600 font-bold">WHO ARE WE COMPARING?</p> <div data-v-c9f66b="" class="pt-2"><div data-v-27fa84="" data-v-c9f66b="" id="drop-down"><div data-v-27fa84="" class="rounded border-none"><div data-v-27fa84="" class="cursor-pointer rounded flex border-gray-300 has-background-white  px-4 py-2"><p data-v-27fa84="" class="text-gray-600 flex-1 mr-2 my-auto">9 selected team members</p> <a data-v-27fa84="" class="em-icon float-right text-gray-700 py-2 chevron-down transition"></a></div> <!----> <!----></div></div></div> <div data-v-c9f66b="" class="mt-6 mb-2 bg-gray-400 rounded py-5 px-4"><p data-v-c9f66b="" class="has-text-weight-medium">How your email compares to the </p> <h1 data-v-c9f66b="" class="text-3xl font-bold my-2 is-capitalized leading-tight">Global Average</h1> <span data-v-c9f66b="" class="text-xs has-text-weight-medium max-w-xs"><p data-v-c9f66b="" class="my-0">This data is based on your onboarding answers.</p> <p data-v-c9f66b=""><a data-v-c9f66b="" href="http://localhost:8123/settings/benchmarking" class="text-gray-900 underline">Change your answers here</a>.</p></span></div> <p data-v-c9f66b="" class="text-xs text-gray-700 max-w-xs ml-1">
+                        These benchmarks were calculated using email data from thousands of inboxes during Q3 2021.<br data-v-c9f66b=""><a data-v-c9f66b="" href="https://help.emailmeter.com/en/article/email-performance-benchmarks-19kv3em/" target="_blank" class="text-gray-700 underline">Read more</a></p></div></div> <div data-v-c9f66b="" class="column"><p data-v-c9f66b="" class="text-xs text-gray-600 font-bold">WHO DO YOU WANT TO BE COMPARED TO?</p> <div data-v-0f841a="" data-v-c9f66b="" id="benchmark-menu" class="flex background pb-4 pt-2 font-bold text-gray-800 mb-2 sticky top-16 z-10"><div data-v-0f841a="" class="py-2 px-4 font-bol rounded cursor-pointer mr-1 flex-grow text-center gray-hover bg-gray-400">
+        Global
+    </div><div data-v-0f841a="" class="py-2 px-4 font-bol rounded cursor-pointer mr-1 flex-grow text-center gray-hover">
+        Your Industry
+    </div><div data-v-0f841a="" class="py-2 px-4 font-bol rounded cursor-pointer mr-1 flex-grow text-center gray-hover">
+        Your Role
+    </div><div data-v-0f841a="" class="py-2 px-4 font-bol rounded cursor-pointer mr-1 flex-grow text-center gray-hover">
+        Companies of a Similar Size
+    </div></div> <div data-v-c9f66b="" id="benchmark-wrapper"><div data-v-047a6e="" id="benchmark-card" class="has-background-white rounded mb-6"><div data-v-047a6e="" class="border-bottom flex py-4 px-6"><div data-v-047a6e="" class="flex flex-1 my-auto"><h1 data-v-047a6e="" class="font-bold text-sm">Messages Received</h1> <div data-v-fa5846="" data-v-047a6e="" class="tooltip-metric has-text-weight-normal has-text-centered my-auto ml-2"><!----> <span data-v-fa5846="" class="cursor-pointer"><i data-v-fa5846="" class="em-icon info is-size-8"></i></span> <!----></div></div> <!----></div> <span data-v-047a6e=""><span data-v-047a6e=""><!----> <div data-v-047a6e="" class="border-bottom px-6 py-2"><div data-v-047a6e="" class="overflow-y-hidden overflow-x-hidden flex" style="position: relative;"><div class="my-10 flex-none"><div class="text-xs font-semibold py-1 py-2">Team Average</div><div class="text-xs font-semibold py-1 py-2">You</div><div class="text-xs font-semibold py-1 py-2">ford@em...</div><div class="text-xs font-semibold py-1 py-2">fordA@em...</div><div class="text-xs font-semibold py-1 py-2">fordB@em...</div><div class="text-xs font-semibold py-1 py-2">fordC@em...</div><div class="text-xs font-semibold py-1 py-2">D@em...</div><div class="text-xs font-semibold py-1 py-2">E@em...</div></div> <div class="flex-1" style="min-height: 375px;"><div id="apexcharts5fyom6dj" class="apexcharts-canvas apexcharts5fyom6dj apexcharts-theme-light" style="width: 416px; height: 360px;"><svg id="SvgjsSvg4774" width="416" height="360" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG4776" class="apexcharts-inner apexcharts-graphical" transform="translate(15, 30)"><defs id="SvgjsDefs4775"><lineargradient id="SvgjsLinearGradient4780" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop4781" stop-opacity="0.4" stop-color="rgba(216,227,240,0.4)" offset="0"></stop><stop id="SvgjsStop4782" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop><stop id="SvgjsStop4783" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop></lineargradient><clippath id="gridRectMask5fyom6dj"><rect id="SvgjsRect4785" width="405" height="315" x="-2" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clippath><clippath id="gridRectMarkerMask5fyom6dj"><rect id="SvgjsRect4786" width="405" height="319" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clippath></defs><rect id="SvgjsRect4784" width="0" height="315" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke-dasharray="3" fill="url(#SvgjsLinearGradient4780)" class="apexcharts-xcrosshairs" y2="315" filter="none" fill-opacity="0.9"></rect><g id="SvgjsG4817" class="apexcharts-yaxis apexcharts-xaxis-inversed" rel="0"><g id="SvgjsG4818" class="apexcharts-yaxis-texts-g apexcharts-xaxis-inversed-texts-g" transform="translate(0, 0)"><text id="SvgjsText4819" font-family="Helvetica, Arial, sans-serif" x="-15" y="21.47727272727273" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4820"></tspan><title></title></text><text id="SvgjsText4821" font-family="Helvetica, Arial, sans-serif" x="-15" y="60.852272727272734" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4822"></tspan><title></title></text><text id="SvgjsText4823" font-family="Helvetica, Arial, sans-serif" x="-15" y="100.22727272727273" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4824"></tspan><title></title></text><text id="SvgjsText4825" font-family="Helvetica, Arial, sans-serif" x="-15" y="139.60227272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4826"></tspan><title></title></text><text id="SvgjsText4827" font-family="Helvetica, Arial, sans-serif" x="-15" y="178.97727272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4828"></tspan><title></title></text><text id="SvgjsText4829" font-family="Helvetica, Arial, sans-serif" x="-15" y="218.35227272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4830"></tspan><title></title></text><text id="SvgjsText4831" font-family="Helvetica, Arial, sans-serif" x="-15" y="257.72727272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4832"></tspan><title></title></text><text id="SvgjsText4833" font-family="Helvetica, Arial, sans-serif" x="-15" y="297.10227272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4834"></tspan><title></title></text></g></g><g id="SvgjsG4815" class="apexcharts-xaxis apexcharts-yaxis-inversed"><g id="SvgjsG4816" class="apexcharts-xaxis-texts-g" transform="translate(0, -8)"></g></g><g id="SvgjsG4835" class="apexcharts-grid"><g id="SvgjsG4836" class="apexcharts-gridlines-horizontal" style="display: none;"><line id="SvgjsLine4838" x1="0" y1="0" x2="401" y2="0" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4839" x1="0" y1="39.375" x2="401" y2="39.375" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4840" x1="0" y1="78.75" x2="401" y2="78.75" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4841" x1="0" y1="118.125" x2="401" y2="118.125" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4842" x1="0" y1="157.5" x2="401" y2="157.5" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4843" x1="0" y1="196.875" x2="401" y2="196.875" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4844" x1="0" y1="236.25" x2="401" y2="236.25" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4845" x1="0" y1="275.625" x2="401" y2="275.625" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4846" x1="0" y1="315" x2="401" y2="315" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line></g><g id="SvgjsG4837" class="apexcharts-gridlines-vertical" style="display: none;"></g><line id="SvgjsLine4848" x1="0" y1="315" x2="401" y2="315" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine4847" x1="0" y1="1" x2="0" y2="315" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG4787" class="apexcharts-bar-series apexcharts-plot-series"><g id="SvgjsG4788" class="apexcharts-series" rel="1" seriesName="seriesx1" data:realIndex="0"><rect id="SvgjsRect4791" width="401" height="31.5" x="0" y="3.9375" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#3DBEFF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4793" d="M -34.869565217391305 3.9375L -0.5130434782608688 3.9375Q 3.486956521739131 3.9375 3.486956521739131 7.9375L 3.486956521739131 31.4375Q 3.486956521739131 35.4375 -0.5130434782608688 35.4375L -0.5130434782608688 35.4375L -34.869565217391305 35.4375L -34.869565217391305 35.4375z" fill="rgba(61,190,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask5fyom6dj)" pathTo="M -34.869565217391305 3.9375L -0.5130434782608688 3.9375Q 3.486956521739131 3.9375 3.486956521739131 7.9375L 3.486956521739131 31.4375Q 3.486956521739131 35.4375 -0.5130434782608688 35.4375L -0.5130434782608688 35.4375L -34.869565217391305 35.4375L -34.869565217391305 35.4375z" pathFrom="M -34.869565217391305 3.9375L -34.869565217391305 3.9375L -34.869565217391305 35.4375L -34.869565217391305 35.4375L -34.869565217391305 35.4375L -34.869565217391305 35.4375L -34.869565217391305 35.4375L -34.869565217391305 3.9375" cy="43.3125" cx="3.486956521739131" j="0" val="44" barHeight="31.5" barWidth="38.356521739130436"></path><rect id="SvgjsRect4794" width="401" height="31.5" x="0" y="43.3125" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#3DBEFF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4796" d="M -34.869565217391305 43.3125L -3.651304347826091 43.3125Q 0.34869565217390885 43.3125 0.34869565217390885 47.3125L 0.34869565217390885 70.8125Q 0.34869565217390885 74.8125 -3.651304347826091 74.8125L -3.651304347826091 74.8125L -34.869565217391305 74.8125L -34.869565217391305 74.8125z" fill="rgba(167,226,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask5fyom6dj)" pathTo="M -34.869565217391305 43.3125L -3.651304347826091 43.3125Q 0.34869565217390885 43.3125 0.34869565217390885 47.3125L 0.34869565217390885 70.8125Q 0.34869565217390885 74.8125 -3.651304347826091 74.8125L -3.651304347826091 74.8125L -34.869565217391305 74.8125L -34.869565217391305 74.8125z" pathFrom="M -34.869565217391305 43.3125L -34.869565217391305 43.3125L -34.869565217391305 74.8125L -34.869565217391305 74.8125L -34.869565217391305 74.8125L -34.869565217391305 74.8125L -34.869565217391305 74.8125L -34.869565217391305 43.3125" cy="82.6875" cx="0.34869565217390885" j="1" val="40.4" barHeight="31.5" barWidth="35.21826086956521"></path><rect id="SvgjsRect4797" width="401" height="31.5" x="0" y="82.6875" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#3DBEFF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4799" d="M -34.869565217391305 82.6875L 0.35869565217391397 82.6875Q 4.358695652173914 82.6875 4.358695652173914 86.6875L 4.358695652173914 110.1875Q 4.358695652173914 114.1875 0.35869565217391397 114.1875L 0.35869565217391397 114.1875L -34.869565217391305 114.1875L -34.869565217391305 114.1875z" fill="rgba(167,226,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask5fyom6dj)" pathTo="M -34.869565217391305 82.6875L 0.35869565217391397 82.6875Q 4.358695652173914 82.6875 4.358695652173914 86.6875L 4.358695652173914 110.1875Q 4.358695652173914 114.1875 0.35869565217391397 114.1875L 0.35869565217391397 114.1875L -34.869565217391305 114.1875L -34.869565217391305 114.1875z" pathFrom="M -34.869565217391305 82.6875L -34.869565217391305 82.6875L -34.869565217391305 114.1875L -34.869565217391305 114.1875L -34.869565217391305 114.1875L -34.869565217391305 114.1875L -34.869565217391305 114.1875L -34.869565217391305 82.6875" cy="122.0625" cx="4.358695652173914" j="2" val="45" barHeight="31.5" barWidth="39.22826086956522"></path><rect id="SvgjsRect4800" width="401" height="31.5" x="0" y="122.0625" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#3DBEFF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4802" d="M -34.869565217391305 122.0625L 0.35869565217391397 122.0625Q 4.358695652173914 122.0625 4.358695652173914 126.0625L 4.358695652173914 149.5625Q 4.358695652173914 153.5625 0.35869565217391397 153.5625L 0.35869565217391397 153.5625L -34.869565217391305 153.5625L -34.869565217391305 153.5625z" fill="rgba(167,226,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask5fyom6dj)" pathTo="M -34.869565217391305 122.0625L 0.35869565217391397 122.0625Q 4.358695652173914 122.0625 4.358695652173914 126.0625L 4.358695652173914 149.5625Q 4.358695652173914 153.5625 0.35869565217391397 153.5625L 0.35869565217391397 153.5625L -34.869565217391305 153.5625L -34.869565217391305 153.5625z" pathFrom="M -34.869565217391305 122.0625L -34.869565217391305 122.0625L -34.869565217391305 153.5625L -34.869565217391305 153.5625L -34.869565217391305 153.5625L -34.869565217391305 153.5625L -34.869565217391305 153.5625L -34.869565217391305 122.0625" cy="161.4375" cx="4.358695652173914" j="3" val="45" barHeight="31.5" barWidth="39.22826086956522"></path><rect id="SvgjsRect4803" width="401" height="31.5" x="0" y="161.4375" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#3DBEFF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4805" d="M -34.869565217391305 161.4375L 0.35869565217391397 161.4375Q 4.358695652173914 161.4375 4.358695652173914 165.4375L 4.358695652173914 188.9375Q 4.358695652173914 192.9375 0.35869565217391397 192.9375L 0.35869565217391397 192.9375L -34.869565217391305 192.9375L -34.869565217391305 192.9375z" fill="rgba(167,226,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask5fyom6dj)" pathTo="M -34.869565217391305 161.4375L 0.35869565217391397 161.4375Q 4.358695652173914 161.4375 4.358695652173914 165.4375L 4.358695652173914 188.9375Q 4.358695652173914 192.9375 0.35869565217391397 192.9375L 0.35869565217391397 192.9375L -34.869565217391305 192.9375L -34.869565217391305 192.9375z" pathFrom="M -34.869565217391305 161.4375L -34.869565217391305 161.4375L -34.869565217391305 192.9375L -34.869565217391305 192.9375L -34.869565217391305 192.9375L -34.869565217391305 192.9375L -34.869565217391305 192.9375L -34.869565217391305 161.4375" cy="200.8125" cx="4.358695652173914" j="4" val="45" barHeight="31.5" barWidth="39.22826086956522"></path><rect id="SvgjsRect4806" width="401" height="31.5" x="0" y="200.8125" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#3DBEFF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4808" d="M -34.869565217391305 200.8125L 0.35869565217391397 200.8125Q 4.358695652173914 200.8125 4.358695652173914 204.8125L 4.358695652173914 228.3125Q 4.358695652173914 232.3125 0.35869565217391397 232.3125L 0.35869565217391397 232.3125L -34.869565217391305 232.3125L -34.869565217391305 232.3125z" fill="rgba(167,226,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask5fyom6dj)" pathTo="M -34.869565217391305 200.8125L 0.35869565217391397 200.8125Q 4.358695652173914 200.8125 4.358695652173914 204.8125L 4.358695652173914 228.3125Q 4.358695652173914 232.3125 0.35869565217391397 232.3125L 0.35869565217391397 232.3125L -34.869565217391305 232.3125L -34.869565217391305 232.3125z" pathFrom="M -34.869565217391305 200.8125L -34.869565217391305 200.8125L -34.869565217391305 232.3125L -34.869565217391305 232.3125L -34.869565217391305 232.3125L -34.869565217391305 232.3125L -34.869565217391305 232.3125L -34.869565217391305 200.8125" cy="240.1875" cx="4.358695652173914" j="5" val="45" barHeight="31.5" barWidth="39.22826086956522"></path><rect id="SvgjsRect4809" width="401" height="31.5" x="0" y="240.1875" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#3DBEFF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4811" d="M -34.869565217391305 240.1875L 0.35869565217391397 240.1875Q 4.358695652173914 240.1875 4.358695652173914 244.1875L 4.358695652173914 267.6875Q 4.358695652173914 271.6875 0.35869565217391397 271.6875L 0.35869565217391397 271.6875L -34.869565217391305 271.6875L -34.869565217391305 271.6875z" fill="rgba(167,226,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask5fyom6dj)" pathTo="M -34.869565217391305 240.1875L 0.35869565217391397 240.1875Q 4.358695652173914 240.1875 4.358695652173914 244.1875L 4.358695652173914 267.6875Q 4.358695652173914 271.6875 0.35869565217391397 271.6875L 0.35869565217391397 271.6875L -34.869565217391305 271.6875L -34.869565217391305 271.6875z" pathFrom="M -34.869565217391305 240.1875L -34.869565217391305 240.1875L -34.869565217391305 271.6875L -34.869565217391305 271.6875L -34.869565217391305 271.6875L -34.869565217391305 271.6875L -34.869565217391305 271.6875L -34.869565217391305 240.1875" cy="279.5625" cx="4.358695652173914" j="6" val="45" barHeight="31.5" barWidth="39.22826086956522"></path><rect id="SvgjsRect4812" width="401" height="31.5" x="0" y="279.5625" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#3DBEFF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4814" d="M -34.869565217391305 279.5625L 0.35869565217391397 279.5625Q 4.358695652173914 279.5625 4.358695652173914 283.5625L 4.358695652173914 307.0625Q 4.358695652173914 311.0625 0.35869565217391397 311.0625L 0.35869565217391397 311.0625L -34.869565217391305 311.0625L -34.869565217391305 311.0625z" fill="rgba(167,226,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask5fyom6dj)" pathTo="M -34.869565217391305 279.5625L 0.35869565217391397 279.5625Q 4.358695652173914 279.5625 4.358695652173914 283.5625L 4.358695652173914 307.0625Q 4.358695652173914 311.0625 0.35869565217391397 311.0625L 0.35869565217391397 311.0625L -34.869565217391305 311.0625L -34.869565217391305 311.0625z" pathFrom="M -34.869565217391305 279.5625L -34.869565217391305 279.5625L -34.869565217391305 311.0625L -34.869565217391305 311.0625L -34.869565217391305 311.0625L -34.869565217391305 311.0625L -34.869565217391305 311.0625L -34.869565217391305 279.5625" cy="318.9375" cx="4.358695652173914" j="7" val="45" barHeight="31.5" barWidth="39.22826086956522"></path><g id="SvgjsG4790" class="apexcharts-bar-goals-markers" style="pointer-events: none"><g id="SvgjsG4792" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4795" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4798" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4801" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4804" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4807" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4810" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4813" className="apexcharts-bar-goals-groups"></g></g></g><g id="SvgjsG4789" class="apexcharts-datalabels" data:realIndex="0"></g></g><line id="SvgjsLine4849" x1="0" y1="0" x2="401" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine4850" x1="0" y1="0" x2="401" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG4851" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG4852" class="apexcharts-xaxis-annotations"><line id="SvgjsLine4853" x1="43.30434782608695" y1="-3" x2="43.30434782608695" y2="312" stroke="#0a1b3e" stroke-dasharray="0" stroke-width="2"></line><rect id="SvgjsRect4857" width="210.21871948242188" height="26.78123664855957" x="42.29693603515625" y="-27.999969482421875" rx="0" ry="0" opacity="1" stroke="#0a1b3e" stroke-width="1" stroke-dasharray="0" fill="#0a1b3e"></rect><text id="SvgjsText4855" font-family="Helvetica, Arial, sans-serif" x="52.30434782608695" y="-11" text-anchor="start" dominant-baseline="auto" font-size="11px" font-weight="600" fill="#ffffff" class="apexcharts-text apexcharts-xaxis-annotation-label  " rel="0" style="font-family: Helvetica, Arial, sans-serif;">Global Monthly Average - 100/month</text></g><g id="SvgjsG4856" class="apexcharts-point-annotations"></g></g><g id="SvgjsG4777" class="apexcharts-annotations"></g></svg><div class="apexcharts-legend" style="max-height: 180px;"></div></div></div> <div class="my-auto ml-2 flex-none"><p class="text-sm font-bold pb-2">
+            44<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            35<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            45<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            45<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            45<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            45<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            45<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            45<span class="text-month">/month</span></p></div><div class="resize-triggers"><div class="expand-trigger"><div style="width: 575px; height: 377px;"></div></div><div class="contract-trigger"></div></div></div></div> <div data-v-047a6e="" class="py-4 px-6 pb-6"><span data-v-047a6e=""><h1 data-v-047a6e="" class="text-lg mb-0"><span data-v-047a6e="" class="font-bold">Your team receives   less emails <i data-v-047a6e="" class="em-icon text-10px bg-gray-400 p-1 rounded-full split-arrow-down"></i></span>
+                        than the average
+                    </h1> <div data-v-047a6e="" class="text-xs mt-4 text-gray-600"><p data-v-047a6e="" class="my-0">Your team receives less emails than at least 66% of other teams in this category </p> <p data-v-047a6e="" class="my-0">
+                            The lowest in this category receives 40
+                            emails/month
+                        </p> <p data-v-047a6e="" class="my-0">
+                            The highest in this category receives 500
+                            emails/month
+                        </p></div></span></div></span></span></div><div data-v-047a6e="" id="benchmark-card" class="has-background-white rounded mb-6"><div data-v-047a6e="" class="border-bottom flex py-4 px-6"><div data-v-047a6e="" class="flex flex-1 my-auto"><h1 data-v-047a6e="" class="font-bold text-sm">Messages Sent</h1> <div data-v-fa5846="" data-v-047a6e="" class="tooltip-metric has-text-weight-normal has-text-centered my-auto ml-2"><!----> <span data-v-fa5846="" class="cursor-pointer"><i data-v-fa5846="" class="em-icon info is-size-8"></i></span> <!----></div></div> <!----></div> <span data-v-047a6e=""><span data-v-047a6e=""><!----> <div data-v-047a6e="" class="border-bottom px-6 py-2"><div data-v-047a6e="" class="overflow-y-hidden overflow-x-hidden flex" style="position: relative;"><div class="my-auto flex-none"><div class="text-xs font-semibold py-1 py-2">Team Average</div><div class="text-xs font-semibold py-1 py-2">You</div><div class="text-xs font-semibold py-1 py-2">ford@em...</div><div class="text-xs font-semibold py-1 py-2">fordA@em...</div><div class="text-xs font-semibold py-1 py-2">fordB@em...</div><div class="text-xs font-semibold py-1 py-2">fordC@em...</div><div class="text-xs font-semibold py-1 py-2">D@em...</div><div class="text-xs font-semibold py-1 py-2">E@em...</div></div> <div class="flex-1" style="min-height: 375px;"><div id="apexcharts9lcfgb1p" class="apexcharts-canvas apexcharts9lcfgb1p apexcharts-theme-light" style="width: 409px; height: 360px;"><svg id="SvgjsSvg4858" width="409" height="360" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG4860" class="apexcharts-inner apexcharts-graphical" transform="translate(15, 30)"><defs id="SvgjsDefs4859"><lineargradient id="SvgjsLinearGradient4864" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop4865" stop-opacity="0.4" stop-color="rgba(216,227,240,0.4)" offset="0"></stop><stop id="SvgjsStop4866" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop><stop id="SvgjsStop4867" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop></lineargradient><clippath id="gridRectMask9lcfgb1p"><rect id="SvgjsRect4869" width="398" height="315" x="-2" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clippath><clippath id="gridRectMarkerMask9lcfgb1p"><rect id="SvgjsRect4870" width="398" height="319" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clippath></defs><rect id="SvgjsRect4868" width="0" height="315" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke-dasharray="3" fill="url(#SvgjsLinearGradient4864)" class="apexcharts-xcrosshairs" y2="315" filter="none" fill-opacity="0.9"></rect><g id="SvgjsG4901" class="apexcharts-yaxis apexcharts-xaxis-inversed" rel="0"><g id="SvgjsG4902" class="apexcharts-yaxis-texts-g apexcharts-xaxis-inversed-texts-g" transform="translate(0, 0)"><text id="SvgjsText4903" font-family="Helvetica, Arial, sans-serif" x="-15" y="21.47727272727273" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4904"></tspan><title></title></text><text id="SvgjsText4905" font-family="Helvetica, Arial, sans-serif" x="-15" y="60.852272727272734" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4906"></tspan><title></title></text><text id="SvgjsText4907" font-family="Helvetica, Arial, sans-serif" x="-15" y="100.22727272727273" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4908"></tspan><title></title></text><text id="SvgjsText4909" font-family="Helvetica, Arial, sans-serif" x="-15" y="139.60227272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4910"></tspan><title></title></text><text id="SvgjsText4911" font-family="Helvetica, Arial, sans-serif" x="-15" y="178.97727272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4912"></tspan><title></title></text><text id="SvgjsText4913" font-family="Helvetica, Arial, sans-serif" x="-15" y="218.35227272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4914"></tspan><title></title></text><text id="SvgjsText4915" font-family="Helvetica, Arial, sans-serif" x="-15" y="257.72727272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4916"></tspan><title></title></text><text id="SvgjsText4917" font-family="Helvetica, Arial, sans-serif" x="-15" y="297.10227272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4918"></tspan><title></title></text></g></g><g id="SvgjsG4899" class="apexcharts-xaxis apexcharts-yaxis-inversed"><g id="SvgjsG4900" class="apexcharts-xaxis-texts-g" transform="translate(0, -8)"></g></g><g id="SvgjsG4919" class="apexcharts-grid"><g id="SvgjsG4920" class="apexcharts-gridlines-horizontal" style="display: none;"><line id="SvgjsLine4922" x1="0" y1="0" x2="394" y2="0" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4923" x1="0" y1="39.375" x2="394" y2="39.375" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4924" x1="0" y1="78.75" x2="394" y2="78.75" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4925" x1="0" y1="118.125" x2="394" y2="118.125" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4926" x1="0" y1="157.5" x2="394" y2="157.5" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4927" x1="0" y1="196.875" x2="394" y2="196.875" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4928" x1="0" y1="236.25" x2="394" y2="236.25" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4929" x1="0" y1="275.625" x2="394" y2="275.625" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine4930" x1="0" y1="315" x2="394" y2="315" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line></g><g id="SvgjsG4921" class="apexcharts-gridlines-vertical" style="display: none;"></g><line id="SvgjsLine4932" x1="0" y1="315" x2="394" y2="315" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine4931" x1="0" y1="1" x2="0" y2="315" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG4871" class="apexcharts-bar-series apexcharts-plot-series"><g id="SvgjsG4872" class="apexcharts-series" rel="1" seriesName="seriesx1" data:realIndex="0"><rect id="SvgjsRect4875" width="394" height="31.5" x="0" y="3.9375" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#50D297" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4877" d="M -26.26666666666667 3.9375L 453.04 3.9375Q 457.04 3.9375 457.04 7.9375L 457.04 31.4375Q 457.04 35.4375 453.04 35.4375L 453.04 35.4375L -26.26666666666667 35.4375L -26.26666666666667 35.4375z" fill="rgba(80,210,151,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask9lcfgb1p)" pathTo="M -26.26666666666667 3.9375L 453.04 3.9375Q 457.04 3.9375 457.04 7.9375L 457.04 31.4375Q 457.04 35.4375 453.04 35.4375L 453.04 35.4375L -26.26666666666667 35.4375L -26.26666666666667 35.4375z" pathFrom="M -26.26666666666667 3.9375L -26.26666666666667 3.9375L -26.26666666666667 35.4375L -26.26666666666667 35.4375L -26.26666666666667 35.4375L -26.26666666666667 35.4375L -26.26666666666667 35.4375L -26.26666666666667 3.9375" cy="43.3125" cx="457.04" j="0" val="92" barHeight="31.5" barWidth="483.3066666666667"></path><rect id="SvgjsRect4878" width="394" height="31.5" x="0" y="43.3125" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#50D297" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4880" d="M -26.26666666666667 43.3125L 206.13333333333333 43.3125Q 210.13333333333333 43.3125 210.13333333333333 47.3125L 210.13333333333333 70.8125Q 210.13333333333333 74.8125 206.13333333333333 74.8125L 206.13333333333333 74.8125L -26.26666666666667 74.8125L -26.26666666666667 74.8125z" fill="rgba(197,239,220,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask9lcfgb1p)" pathTo="M -26.26666666666667 43.3125L 206.13333333333333 43.3125Q 210.13333333333333 43.3125 210.13333333333333 47.3125L 210.13333333333333 70.8125Q 210.13333333333333 74.8125 206.13333333333333 74.8125L 206.13333333333333 74.8125L -26.26666666666667 74.8125L -26.26666666666667 74.8125z" pathFrom="M -26.26666666666667 43.3125L -26.26666666666667 43.3125L -26.26666666666667 74.8125L -26.26666666666667 74.8125L -26.26666666666667 74.8125L -26.26666666666667 74.8125L -26.26666666666667 74.8125L -26.26666666666667 43.3125" cy="82.6875" cx="210.13333333333333" j="1" val="45" barHeight="31.5" barWidth="236.4"></path><rect id="SvgjsRect4881" width="394" height="31.5" x="0" y="82.6875" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#50D297" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4883" d="M -26.26666666666667 82.6875L 495.0666666666667 82.6875Q 499.0666666666667 82.6875 499.0666666666667 86.6875L 499.0666666666667 110.1875Q 499.0666666666667 114.1875 495.0666666666667 114.1875L 495.0666666666667 114.1875L -26.26666666666667 114.1875L -26.26666666666667 114.1875z" fill="rgba(197,239,220,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask9lcfgb1p)" pathTo="M -26.26666666666667 82.6875L 495.0666666666667 82.6875Q 499.0666666666667 82.6875 499.0666666666667 86.6875L 499.0666666666667 110.1875Q 499.0666666666667 114.1875 495.0666666666667 114.1875L 495.0666666666667 114.1875L -26.26666666666667 114.1875L -26.26666666666667 114.1875z" pathFrom="M -26.26666666666667 82.6875L -26.26666666666667 82.6875L -26.26666666666667 114.1875L -26.26666666666667 114.1875L -26.26666666666667 114.1875L -26.26666666666667 114.1875L -26.26666666666667 114.1875L -26.26666666666667 82.6875" cy="122.0625" cx="499.0666666666667" j="2" val="100" barHeight="31.5" barWidth="525.3333333333334"></path><rect id="SvgjsRect4884" width="394" height="31.5" x="0" y="122.0625" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#50D297" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4886" d="M -26.26666666666667 122.0625L 495.0666666666667 122.0625Q 499.0666666666667 122.0625 499.0666666666667 126.0625L 499.0666666666667 149.5625Q 499.0666666666667 153.5625 495.0666666666667 153.5625L 495.0666666666667 153.5625L -26.26666666666667 153.5625L -26.26666666666667 153.5625z" fill="rgba(197,239,220,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask9lcfgb1p)" pathTo="M -26.26666666666667 122.0625L 495.0666666666667 122.0625Q 499.0666666666667 122.0625 499.0666666666667 126.0625L 499.0666666666667 149.5625Q 499.0666666666667 153.5625 495.0666666666667 153.5625L 495.0666666666667 153.5625L -26.26666666666667 153.5625L -26.26666666666667 153.5625z" pathFrom="M -26.26666666666667 122.0625L -26.26666666666667 122.0625L -26.26666666666667 153.5625L -26.26666666666667 153.5625L -26.26666666666667 153.5625L -26.26666666666667 153.5625L -26.26666666666667 153.5625L -26.26666666666667 122.0625" cy="161.4375" cx="499.0666666666667" j="3" val="100" barHeight="31.5" barWidth="525.3333333333334"></path><rect id="SvgjsRect4887" width="394" height="31.5" x="0" y="161.4375" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#50D297" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4889" d="M -26.26666666666667 161.4375L 495.0666666666667 161.4375Q 499.0666666666667 161.4375 499.0666666666667 165.4375L 499.0666666666667 188.9375Q 499.0666666666667 192.9375 495.0666666666667 192.9375L 495.0666666666667 192.9375L -26.26666666666667 192.9375L -26.26666666666667 192.9375z" fill="rgba(197,239,220,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask9lcfgb1p)" pathTo="M -26.26666666666667 161.4375L 495.0666666666667 161.4375Q 499.0666666666667 161.4375 499.0666666666667 165.4375L 499.0666666666667 188.9375Q 499.0666666666667 192.9375 495.0666666666667 192.9375L 495.0666666666667 192.9375L -26.26666666666667 192.9375L -26.26666666666667 192.9375z" pathFrom="M -26.26666666666667 161.4375L -26.26666666666667 161.4375L -26.26666666666667 192.9375L -26.26666666666667 192.9375L -26.26666666666667 192.9375L -26.26666666666667 192.9375L -26.26666666666667 192.9375L -26.26666666666667 161.4375" cy="200.8125" cx="499.0666666666667" j="4" val="100" barHeight="31.5" barWidth="525.3333333333334"></path><rect id="SvgjsRect4890" width="394" height="31.5" x="0" y="200.8125" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#50D297" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4892" d="M -26.26666666666667 200.8125L 495.0666666666667 200.8125Q 499.0666666666667 200.8125 499.0666666666667 204.8125L 499.0666666666667 228.3125Q 499.0666666666667 232.3125 495.0666666666667 232.3125L 495.0666666666667 232.3125L -26.26666666666667 232.3125L -26.26666666666667 232.3125z" fill="rgba(197,239,220,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask9lcfgb1p)" pathTo="M -26.26666666666667 200.8125L 495.0666666666667 200.8125Q 499.0666666666667 200.8125 499.0666666666667 204.8125L 499.0666666666667 228.3125Q 499.0666666666667 232.3125 495.0666666666667 232.3125L 495.0666666666667 232.3125L -26.26666666666667 232.3125L -26.26666666666667 232.3125z" pathFrom="M -26.26666666666667 200.8125L -26.26666666666667 200.8125L -26.26666666666667 232.3125L -26.26666666666667 232.3125L -26.26666666666667 232.3125L -26.26666666666667 232.3125L -26.26666666666667 232.3125L -26.26666666666667 200.8125" cy="240.1875" cx="499.0666666666667" j="5" val="100" barHeight="31.5" barWidth="525.3333333333334"></path><rect id="SvgjsRect4893" width="394" height="31.5" x="0" y="240.1875" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#50D297" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4895" d="M -26.26666666666667 240.1875L 495.0666666666667 240.1875Q 499.0666666666667 240.1875 499.0666666666667 244.1875L 499.0666666666667 267.6875Q 499.0666666666667 271.6875 495.0666666666667 271.6875L 495.0666666666667 271.6875L -26.26666666666667 271.6875L -26.26666666666667 271.6875z" fill="rgba(197,239,220,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask9lcfgb1p)" pathTo="M -26.26666666666667 240.1875L 495.0666666666667 240.1875Q 499.0666666666667 240.1875 499.0666666666667 244.1875L 499.0666666666667 267.6875Q 499.0666666666667 271.6875 495.0666666666667 271.6875L 495.0666666666667 271.6875L -26.26666666666667 271.6875L -26.26666666666667 271.6875z" pathFrom="M -26.26666666666667 240.1875L -26.26666666666667 240.1875L -26.26666666666667 271.6875L -26.26666666666667 271.6875L -26.26666666666667 271.6875L -26.26666666666667 271.6875L -26.26666666666667 271.6875L -26.26666666666667 240.1875" cy="279.5625" cx="499.0666666666667" j="6" val="100" barHeight="31.5" barWidth="525.3333333333334"></path><rect id="SvgjsRect4896" width="394" height="31.5" x="0" y="279.5625" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#50D297" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4898" d="M -26.26666666666667 279.5625L 495.0666666666667 279.5625Q 499.0666666666667 279.5625 499.0666666666667 283.5625L 499.0666666666667 307.0625Q 499.0666666666667 311.0625 495.0666666666667 311.0625L 495.0666666666667 311.0625L -26.26666666666667 311.0625L -26.26666666666667 311.0625z" fill="rgba(197,239,220,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMask9lcfgb1p)" pathTo="M -26.26666666666667 279.5625L 495.0666666666667 279.5625Q 499.0666666666667 279.5625 499.0666666666667 283.5625L 499.0666666666667 307.0625Q 499.0666666666667 311.0625 495.0666666666667 311.0625L 495.0666666666667 311.0625L -26.26666666666667 311.0625L -26.26666666666667 311.0625z" pathFrom="M -26.26666666666667 279.5625L -26.26666666666667 279.5625L -26.26666666666667 311.0625L -26.26666666666667 311.0625L -26.26666666666667 311.0625L -26.26666666666667 311.0625L -26.26666666666667 311.0625L -26.26666666666667 279.5625" cy="318.9375" cx="499.0666666666667" j="7" val="100" barHeight="31.5" barWidth="525.3333333333334"></path><g id="SvgjsG4874" class="apexcharts-bar-goals-markers" style="pointer-events: none"><g id="SvgjsG4876" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4879" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4882" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4885" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4888" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4891" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4894" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4897" className="apexcharts-bar-goals-groups"></g></g></g><g id="SvgjsG4873" class="apexcharts-datalabels" data:realIndex="0"></g></g><line id="SvgjsLine4933" x1="0" y1="0" x2="394" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine4934" x1="0" y1="0" x2="394" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG4935" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG4936" class="apexcharts-xaxis-annotations"><line id="SvgjsLine4937" x1="69.80000000000001" y1="-3" x2="69.80000000000001" y2="312" stroke="#0a1b3e" stroke-dasharray="0" stroke-width="2"></line><rect id="SvgjsRect4941" width="204.09376525878906" height="26.78130531311035" x="68.796875" y="-28" rx="0" ry="0" opacity="1" stroke="#0a1b3e" stroke-width="1" stroke-dasharray="0" fill="#0a1b3e"></rect><text id="SvgjsText4939" font-family="Helvetica, Arial, sans-serif" x="78.80000000000001" y="-11" text-anchor="start" dominant-baseline="auto" font-size="11px" font-weight="600" fill="#ffffff" class="apexcharts-text apexcharts-xaxis-annotation-label  " rel="0" style="font-family: Helvetica, Arial, sans-serif;">Global Monthly Average - 20/month</text></g><g id="SvgjsG4940" class="apexcharts-point-annotations"></g></g><g id="SvgjsG4861" class="apexcharts-annotations"></g></svg><div class="apexcharts-legend" style="max-height: 180px;"></div></div></div> <div class="my-auto ml-2 flex-none"><p class="text-sm font-bold pb-2">
+            92<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            45<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            100<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            100<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            100<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            100<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            100<span class="text-month">/month</span></p><p class="text-sm font-bold pb-2">
+            100<span class="text-month">/month</span></p></div><div class="resize-triggers"><div class="expand-trigger"><div style="width: 575px; height: 377px;"></div></div><div class="contract-trigger"></div></div></div></div> <div data-v-047a6e="" class="py-4 px-6 pb-6"><span data-v-047a6e=""><h1 data-v-047a6e="" class="text-lg mb-0"><span data-v-047a6e="" class="font-bold">Your team sends  a lot more emails <i data-v-047a6e="" class="em-icon text-10px bg-gray-400 p-1 rounded-full split-arrow-up"></i></span>
+                        than the average
+                    </h1> <div data-v-047a6e="" class="text-xs mt-4 text-gray-600"><p data-v-047a6e="" class="my-0">Your team sends more emails than almost every team in this category </p> <p data-v-047a6e="" class="my-0">
+                            The lowest in this category sends 5
+                            emails/month
+                        </p> <p data-v-047a6e="" class="my-0">
+                            The highest in this category sends 80
+                            emails/month
+                        </p></div></span></div></span></span></div><div data-v-047a6e="" id="benchmark-card" class="has-background-white rounded mb-6"><div data-v-047a6e="" class="border-bottom flex py-4 px-6"><div data-v-047a6e="" class="flex flex-1 my-auto"><h1 data-v-047a6e="" class="font-bold text-sm">Average Response Time</h1> <div data-v-fa5846="" data-v-047a6e="" class="tooltip-metric has-text-weight-normal has-text-centered my-auto ml-2"><!----> <span data-v-fa5846="" class="cursor-pointer"><i data-v-fa5846="" class="em-icon info is-size-8"></i></span> <!----></div></div> <!----></div> <span data-v-047a6e=""><span data-v-047a6e=""><!----> <div data-v-047a6e="" class="border-bottom px-6 py-2"><div data-v-047a6e="" class="overflow-y-hidden overflow-x-hidden flex" style="position: relative;"><div class="my-auto flex-none"><div class="text-xs font-semibold py-1 py-2">Team Average</div><div class="text-xs font-semibold py-1 py-2">You</div><div class="text-xs font-semibold py-1 py-2">ford@em...</div><div class="text-xs font-semibold py-1 py-2">fordA@em...</div><div class="text-xs font-semibold py-1 py-2">fordB@em...</div><div class="text-xs font-semibold py-1 py-2">fordC@em...</div><div class="text-xs font-semibold py-1 py-2">D@em...</div><div class="text-xs font-semibold py-1 py-2">E@em...</div></div> <div class="flex-1" style="min-height: 375px;"><div id="apexchartsl0prmy3g" class="apexcharts-canvas apexchartsl0prmy3g apexcharts-theme-light" style="width: 423px; height: 360px;"><svg id="SvgjsSvg4942" width="423" height="360" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG4944" class="apexcharts-inner apexcharts-graphical" transform="translate(15, 30)"><defs id="SvgjsDefs4943"><lineargradient id="SvgjsLinearGradient4948" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop4949" stop-opacity="0.4" stop-color="rgba(216,227,240,0.4)" offset="0"></stop><stop id="SvgjsStop4950" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop><stop id="SvgjsStop4951" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1"></stop></lineargradient><clippath id="gridRectMaskl0prmy3g"><rect id="SvgjsRect4953" width="412" height="315" x="-2" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clippath><clippath id="gridRectMarkerMaskl0prmy3g"><rect id="SvgjsRect4954" width="412" height="319" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clippath></defs><rect id="SvgjsRect4952" width="0" height="315" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke-dasharray="3" fill="url(#SvgjsLinearGradient4948)" class="apexcharts-xcrosshairs" y2="315" filter="none" fill-opacity="0.9"></rect><g id="SvgjsG4985" class="apexcharts-yaxis apexcharts-xaxis-inversed" rel="0"><g id="SvgjsG4986" class="apexcharts-yaxis-texts-g apexcharts-xaxis-inversed-texts-g" transform="translate(0, 0)"><text id="SvgjsText4987" font-family="Helvetica, Arial, sans-serif" x="-15" y="21.47727272727273" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4988"></tspan><title></title></text><text id="SvgjsText4989" font-family="Helvetica, Arial, sans-serif" x="-15" y="60.852272727272734" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4990"></tspan><title></title></text><text id="SvgjsText4991" font-family="Helvetica, Arial, sans-serif" x="-15" y="100.22727272727273" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4992"></tspan><title></title></text><text id="SvgjsText4993" font-family="Helvetica, Arial, sans-serif" x="-15" y="139.60227272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4994"></tspan><title></title></text><text id="SvgjsText4995" font-family="Helvetica, Arial, sans-serif" x="-15" y="178.97727272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4996"></tspan><title></title></text><text id="SvgjsText4997" font-family="Helvetica, Arial, sans-serif" x="-15" y="218.35227272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan4998"></tspan><title></title></text><text id="SvgjsText4999" font-family="Helvetica, Arial, sans-serif" x="-15" y="257.72727272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan5000"></tspan><title></title></text><text id="SvgjsText5001" font-family="Helvetica, Arial, sans-serif" x="-15" y="297.10227272727275" text-anchor="end" dominant-baseline="auto" font-size="11px" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-yaxis-label " style="font-family: Helvetica, Arial, sans-serif;"><tspan id="SvgjsTspan5002"></tspan><title></title></text></g></g><g id="SvgjsG4983" class="apexcharts-xaxis apexcharts-yaxis-inversed"><g id="SvgjsG4984" class="apexcharts-xaxis-texts-g" transform="translate(0, -8)"></g></g><g id="SvgjsG5003" class="apexcharts-grid"><g id="SvgjsG5004" class="apexcharts-gridlines-horizontal" style="display: none;"><line id="SvgjsLine5006" x1="0" y1="0" x2="408" y2="0" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine5007" x1="0" y1="39.375" x2="408" y2="39.375" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine5008" x1="0" y1="78.75" x2="408" y2="78.75" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine5009" x1="0" y1="118.125" x2="408" y2="118.125" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine5010" x1="0" y1="157.5" x2="408" y2="157.5" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine5011" x1="0" y1="196.875" x2="408" y2="196.875" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine5012" x1="0" y1="236.25" x2="408" y2="236.25" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine5013" x1="0" y1="275.625" x2="408" y2="275.625" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine5014" x1="0" y1="315" x2="408" y2="315" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line></g><g id="SvgjsG5005" class="apexcharts-gridlines-vertical" style="display: none;"></g><line id="SvgjsLine5016" x1="0" y1="315" x2="408" y2="315" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine5015" x1="0" y1="1" x2="0" y2="315" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG4955" class="apexcharts-bar-series apexcharts-plot-series"><g id="SvgjsG4956" class="apexcharts-series" rel="1" seriesName="seriesx1" data:realIndex="0"><rect id="SvgjsRect4959" width="408" height="31.5" x="0" y="3.9375" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#BE99FF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4961" d="M -203.99999999999997 3.9375L 287.42828 3.9375Q 291.42828 3.9375 291.42828 7.9375L 291.42828 31.4375Q 291.42828 35.4375 287.42828 35.4375L 287.42828 35.4375L -203.99999999999997 35.4375L -203.99999999999997 35.4375z" fill="rgba(190,153,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskl0prmy3g)" pathTo="M -203.99999999999997 3.9375L 287.42828 3.9375Q 291.42828 3.9375 291.42828 7.9375L 291.42828 31.4375Q 291.42828 35.4375 287.42828 35.4375L 287.42828 35.4375L -203.99999999999997 35.4375L -203.99999999999997 35.4375z" pathFrom="M -203.99999999999997 3.9375L -203.99999999999997 3.9375L -203.99999999999997 35.4375L -203.99999999999997 35.4375L -203.99999999999997 35.4375L -203.99999999999997 35.4375L -203.99999999999997 35.4375L -203.99999999999997 3.9375" cy="43.3125" cx="291.42828" j="0" val="2428.57" barHeight="31.5" barWidth="495.42828"></path><rect id="SvgjsRect4962" width="408" height="31.5" x="0" y="43.3125" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#BE99FF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4964" d="M -203.99999999999997 43.3125L 199.99999999999997 43.3125Q 203.99999999999997 43.3125 203.99999999999997 47.3125L 203.99999999999997 70.8125Q 203.99999999999997 74.8125 199.99999999999997 74.8125L 199.99999999999997 74.8125L -203.99999999999997 74.8125L -203.99999999999997 74.8125z" fill="rgba(233,220,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskl0prmy3g)" pathTo="M -203.99999999999997 43.3125L 199.99999999999997 43.3125Q 203.99999999999997 43.3125 203.99999999999997 47.3125L 203.99999999999997 70.8125Q 203.99999999999997 74.8125 199.99999999999997 74.8125L 199.99999999999997 74.8125L -203.99999999999997 74.8125L -203.99999999999997 74.8125z" pathFrom="M -203.99999999999997 43.3125L -203.99999999999997 43.3125L -203.99999999999997 74.8125L -203.99999999999997 74.8125L -203.99999999999997 74.8125L -203.99999999999997 74.8125L -203.99999999999997 74.8125L -203.99999999999997 43.3125" cy="82.6875" cx="203.99999999999997" j="1" val="2000" barHeight="31.5" barWidth="407.99999999999994"></path><rect id="SvgjsRect4965" width="408" height="31.5" x="0" y="82.6875" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#BE99FF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4967" d="M -203.99999999999997 82.6875L 302 82.6875Q 306 82.6875 306 86.6875L 306 110.1875Q 306 114.1875 302 114.1875L 302 114.1875L -203.99999999999997 114.1875L -203.99999999999997 114.1875z" fill="rgba(233,220,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskl0prmy3g)" pathTo="M -203.99999999999997 82.6875L 302 82.6875Q 306 82.6875 306 86.6875L 306 110.1875Q 306 114.1875 302 114.1875L 302 114.1875L -203.99999999999997 114.1875L -203.99999999999997 114.1875z" pathFrom="M -203.99999999999997 82.6875L -203.99999999999997 82.6875L -203.99999999999997 114.1875L -203.99999999999997 114.1875L -203.99999999999997 114.1875L -203.99999999999997 114.1875L -203.99999999999997 114.1875L -203.99999999999997 82.6875" cy="122.0625" cx="306" j="2" val="2500" barHeight="31.5" barWidth="509.99999999999994"></path><rect id="SvgjsRect4968" width="408" height="31.5" x="0" y="122.0625" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#BE99FF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4970" d="M -203.99999999999997 122.0625L 302 122.0625Q 306 122.0625 306 126.0625L 306 149.5625Q 306 153.5625 302 153.5625L 302 153.5625L -203.99999999999997 153.5625L -203.99999999999997 153.5625z" fill="rgba(233,220,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskl0prmy3g)" pathTo="M -203.99999999999997 122.0625L 302 122.0625Q 306 122.0625 306 126.0625L 306 149.5625Q 306 153.5625 302 153.5625L 302 153.5625L -203.99999999999997 153.5625L -203.99999999999997 153.5625z" pathFrom="M -203.99999999999997 122.0625L -203.99999999999997 122.0625L -203.99999999999997 153.5625L -203.99999999999997 153.5625L -203.99999999999997 153.5625L -203.99999999999997 153.5625L -203.99999999999997 153.5625L -203.99999999999997 122.0625" cy="161.4375" cx="306" j="3" val="2500" barHeight="31.5" barWidth="509.99999999999994"></path><rect id="SvgjsRect4971" width="408" height="31.5" x="0" y="161.4375" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#BE99FF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4973" d="M -203.99999999999997 161.4375L 302 161.4375Q 306 161.4375 306 165.4375L 306 188.9375Q 306 192.9375 302 192.9375L 302 192.9375L -203.99999999999997 192.9375L -203.99999999999997 192.9375z" fill="rgba(233,220,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskl0prmy3g)" pathTo="M -203.99999999999997 161.4375L 302 161.4375Q 306 161.4375 306 165.4375L 306 188.9375Q 306 192.9375 302 192.9375L 302 192.9375L -203.99999999999997 192.9375L -203.99999999999997 192.9375z" pathFrom="M -203.99999999999997 161.4375L -203.99999999999997 161.4375L -203.99999999999997 192.9375L -203.99999999999997 192.9375L -203.99999999999997 192.9375L -203.99999999999997 192.9375L -203.99999999999997 192.9375L -203.99999999999997 161.4375" cy="200.8125" cx="306" j="4" val="2500" barHeight="31.5" barWidth="509.99999999999994"></path><rect id="SvgjsRect4974" width="408" height="31.5" x="0" y="200.8125" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#BE99FF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4976" d="M -203.99999999999997 200.8125L 302 200.8125Q 306 200.8125 306 204.8125L 306 228.3125Q 306 232.3125 302 232.3125L 302 232.3125L -203.99999999999997 232.3125L -203.99999999999997 232.3125z" fill="rgba(233,220,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskl0prmy3g)" pathTo="M -203.99999999999997 200.8125L 302 200.8125Q 306 200.8125 306 204.8125L 306 228.3125Q 306 232.3125 302 232.3125L 302 232.3125L -203.99999999999997 232.3125L -203.99999999999997 232.3125z" pathFrom="M -203.99999999999997 200.8125L -203.99999999999997 200.8125L -203.99999999999997 232.3125L -203.99999999999997 232.3125L -203.99999999999997 232.3125L -203.99999999999997 232.3125L -203.99999999999997 232.3125L -203.99999999999997 200.8125" cy="240.1875" cx="306" j="5" val="2500" barHeight="31.5" barWidth="509.99999999999994"></path><rect id="SvgjsRect4977" width="408" height="31.5" x="0" y="240.1875" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#BE99FF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4979" d="M -203.99999999999997 240.1875L 302 240.1875Q 306 240.1875 306 244.1875L 306 267.6875Q 306 271.6875 302 271.6875L 302 271.6875L -203.99999999999997 271.6875L -203.99999999999997 271.6875z" fill="rgba(233,220,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskl0prmy3g)" pathTo="M -203.99999999999997 240.1875L 302 240.1875Q 306 240.1875 306 244.1875L 306 267.6875Q 306 271.6875 302 271.6875L 302 271.6875L -203.99999999999997 271.6875L -203.99999999999997 271.6875z" pathFrom="M -203.99999999999997 240.1875L -203.99999999999997 240.1875L -203.99999999999997 271.6875L -203.99999999999997 271.6875L -203.99999999999997 271.6875L -203.99999999999997 271.6875L -203.99999999999997 271.6875L -203.99999999999997 240.1875" cy="279.5625" cx="306" j="6" val="2500" barHeight="31.5" barWidth="509.99999999999994"></path><rect id="SvgjsRect4980" width="408" height="31.5" x="0" y="279.5625" rx="4" ry="4" opacity="0.2" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#BE99FF" class="apexcharts-backgroundBar"></rect><path id="SvgjsPath4982" d="M -203.99999999999997 279.5625L 302 279.5625Q 306 279.5625 306 283.5625L 306 307.0625Q 306 311.0625 302 311.0625L 302 311.0625L -203.99999999999997 311.0625L -203.99999999999997 311.0625z" fill="rgba(233,220,255,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0" clip-path="url(#gridRectMaskl0prmy3g)" pathTo="M -203.99999999999997 279.5625L 302 279.5625Q 306 279.5625 306 283.5625L 306 307.0625Q 306 311.0625 302 311.0625L 302 311.0625L -203.99999999999997 311.0625L -203.99999999999997 311.0625z" pathFrom="M -203.99999999999997 279.5625L -203.99999999999997 279.5625L -203.99999999999997 311.0625L -203.99999999999997 311.0625L -203.99999999999997 311.0625L -203.99999999999997 311.0625L -203.99999999999997 311.0625L -203.99999999999997 279.5625" cy="318.9375" cx="306" j="7" val="2500" barHeight="31.5" barWidth="509.99999999999994"></path><g id="SvgjsG4958" class="apexcharts-bar-goals-markers" style="pointer-events: none"><g id="SvgjsG4960" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4963" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4966" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4969" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4972" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4975" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4978" className="apexcharts-bar-goals-groups"></g><g id="SvgjsG4981" className="apexcharts-bar-goals-groups"></g></g></g><g id="SvgjsG4957" class="apexcharts-datalabels" data:realIndex="0"></g></g><line id="SvgjsLine5017" x1="0" y1="0" x2="408" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine5018" x1="0" y1="0" x2="408" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG5019" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG5020" class="apexcharts-xaxis-annotations"><line id="SvgjsLine5021" x1="154.35503999999997" y1="-3" x2="154.35503999999997" y2="312" stroke="#0a1b3e" stroke-dasharray="0" stroke-width="2"></line><rect id="SvgjsRect5025" width="177.2342987060547" height="26.78130531311035" x="153.34381103515625" y="-28.0001220703125" rx="0" ry="0" opacity="1" stroke="#0a1b3e" stroke-width="1" stroke-dasharray="0" fill="#0a1b3e"></rect><text id="SvgjsText5023" font-family="Helvetica, Arial, sans-serif" x="163.35503999999997" y="-11" text-anchor="start" dominant-baseline="auto" font-size="11px" font-weight="600" fill="#ffffff" class="apexcharts-text apexcharts-xaxis-annotation-label  " rel="0" style="font-family: Helvetica, Arial, sans-serif;">Global Monthly Average - 30m </text></g><g id="SvgjsG5024" class="apexcharts-point-annotations"></g></g><g id="SvgjsG4945" class="apexcharts-annotations"></g></svg><div class="apexcharts-legend" style="max-height: 180px;"></div></div></div> <div class="my-auto ml-2 flex-none"><p class="text-sm font-bold pb-2">
+            40m 28s<!----></p><p class="text-sm font-bold pb-2">
+            33m 2<!----></p><p class="text-sm font-bold pb-2">
+            41m 4<!----></p><p class="text-sm font-bold pb-2">
+            41m 4<!----></p><p class="text-sm font-bold pb-2">
+            41m 4<!----></p><p class="text-sm font-bold pb-2">
+            41m 4<!----></p><p class="text-sm font-bold pb-2">
+            41m 4<!----></p><p class="text-sm font-bold pb-2">
+            41m 4<!----></p></div><div class="resize-triggers"><div class="expand-trigger"><div style="width: 575px; height: 377px;"></div></div><div class="contract-trigger"></div></div></div></div> <div data-v-047a6e="" class="py-4 px-6 pb-6"><span data-v-047a6e=""><h1 data-v-047a6e="" class="text-lg mb-0"><span data-v-047a6e="" class="font-bold">Your team replies   slower  <i data-v-047a6e="" class="em-icon text-10px bg-gray-400 p-1 rounded-full split-arrow-down"></i></span>
+                        than the average
+                    </h1> <div data-v-047a6e="" class="text-xs mt-4 text-gray-600"><p data-v-047a6e="" class="my-0">Your team replies slower than at least 66% of other teams in this category </p> <p data-v-047a6e="" class="my-0">
+                            The quickest in this category replys 16m 40s
+                            to reply
+                        </p> <p data-v-047a6e="" class="my-0">
+                            The slowest in this category replys 50m 0s
+                            to reply
+                        </p></div></span></div></span></span></div></div></div></div> <!----></section></div> <footer data-v-cefe0b="" class="footer is-size-9"><div data-v-cefe0b="" class="level is-mobile"><div data-v-cefe0b="" class="level-right"><span data-v-cefe0b="" class="level-item flex-grow"><a data-v-cefe0b="" href="https://www.emailmeter.com/privacy-policy" target="_blank" rel="noopener" class="has-text-grey-darker">Privacy</a></span> <span data-v-cefe0b="" class="level-item flex-grow"><a data-v-cefe0b="" href="https://www.emailmeter.com/terms-of-service" target="_blank" rel="noopener" class="has-text-grey-darker">Terms</a></span> <span data-v-cefe0b="" class="level-item flex-grow"><a data-v-cefe0b="" href="mailto:hello@emailmeter.com" target="_blank" class="has-text-grey-darker">Contact Us</a></span> <span data-v-cefe0b="" class="level-item flex-grow"><a data-v-cefe0b="" href="https://portal.productboard.com/emailmeter/1-email-meter-feedback-board" target="_blank" class="has-text-grey-darker">Share Feedback</a></span></div></div></footer></div></div></div> <div data-v-624384="" id="notification-group" class="notification-group" style="top: calc(var(--top-margin) + 0rem + 0px);"><!----> <!----> </div> <!----></div><script>(function () {
+  var _document$getElementB;
+
+  (_document$getElementB = document.getElementById('gtm-iframe')) === null || _document$getElementB === void 0 ? void 0 : _document$getElementB.setAttribute('src', "https://www.googletagmanager.com/ns.html?id=".concat(undefined, "&gtm_auth=").concat(undefined, "&gtm_preview=").concat(undefined, "&gtm_cookies_win=x"));
+})();</script><script type="application/javascript" src="./Email Meter_files/app.871a4408.js"></script><script id="stripe-script" src="./Email Meter_files/saved_resource"></script><svg id="SvgjsSvg2417" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs2418"></defs><polyline id="SvgjsPolyline2419" points="0,0"></polyline><path id="SvgjsPath2420" d="M0 0 "></path></svg><iframe name="__privateStripeMetricsController7110" frameborder="0" allowtransparency="true" scrolling="no" allow="payment *" src="./Email Meter_files/m-outer-9475bd26486e6119b23924eebd3d561a.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe></body></html>

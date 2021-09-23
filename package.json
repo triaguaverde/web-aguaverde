@@ -1,0 +1,27 @@
+{
+  "name": "aguaverde-web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxt/content": "^1.14.0",
+    "core-js": "^3.15.1",
+    "nuxt": "^2.15.7",
+    "typeface-league-spartan": "0.0.44"
+  },
+  "devDependencies": {
+    "@nuxtjs/style-resources": "^1.2.1",
+    "@nuxtjs/tailwindcss": "^4.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "fibers": "^5.0.0",
+    "node-sass": "^6.0.1",
+    "postcss": "^8.3.5",
+    "prettier": "^2.3.2",
+    "sass-loader": "^10.2.0"
+  }
+}
