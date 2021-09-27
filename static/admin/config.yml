@@ -61,13 +61,13 @@ collections:
           required: false,
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'info-natacion' # Used in routes, e.g., /admin/collections/blog
-    label: 'InfoNatacion' # Used in the UI
-    label_singular: 'info-nat'
-    folder: '/content/natacion' # The path to the folder where the documents are stored
-    description: 'Info sobre natacion'
+  - name: 'paginas' # Used in routes, e.g., /admin/collections/blog
+    label: 'paginas' # Used in the UI
+    label_singular: 'pagina'
+    folder: '/content/paginas' # The path to the folder where the documents are stored
+    description: 'Paginas de informacion'
     create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: '{{pagina}}-{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {
           label: 'Layout',
@@ -75,134 +75,21 @@ collections:
           widget: 'hidden',
           default: 'feature',
         }
-      - { label: 'Titulo', name: 'titulo', widget: 'string' }
-      - {
-          label: 'Featured Image',
-          name: 'thumbnail',
-          widget: 'image',
-          required: false,
-        }
-      - { label: 'Descripcion', name: 'descripcion', widget: 'string' }
-  - name: 'info-carrera' # Used in routes, e.g., /admin/collections/blog
-    label: 'InfoCarrera' # Used in the UI
-    label_singular: 'info-carr'
-    folder: '/content/carrera' # The path to the folder where the documents are stored
-    description: 'Info sobre carrera'
-    create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {
-          label: 'Layout',
-          name: 'layout',
-          widget: 'hidden',
-          default: 'feature',
-        }
-      - { label: 'Titulo', name: 'titulo', widget: 'string' }
-      - {
-          label: 'Featured Image',
-          name: 'thumbnail',
-          widget: 'image',
-          required: false,
-        }
-      - { label: 'Descripcion', name: 'descripcion', widget: 'string' }
-  - name: 'foro-posts' # Used in routes, e.g., /admin/collections/blog
-    label: 'ForoPosts' # Used in the UI
-    label_singular: 'foro-post'
-    folder: '/content/foro' # The path to the folder where the documents are stored
-    description: 'Info sobre carrera'
-    create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {
-          label: 'Layout',
-          name: 'layout',
-          widget: 'hidden',
-          default: 'feature',
-        }
-      - { label: 'Titulo', name: 'titulo', widget: 'string' }
-      - { label: 'Subtitulo', name: 'subtitulo', widget: 'string' }
-      - {
-          label: 'Featured Image',
-          name: 'thumbnail',
-          widget: 'image',
-          required: false,
-        }
-      - { label: 'Descripcion', name: 'descripcion', widget: 'string' }
-  - name: 'requisitos' # Used in routes, e.g., /admin/collections/blog
-    label: 'Requisitos' # Used in the UI
-    label_singular: 'requisito'
-    folder: '/content/requisito' # The path to the folder where the documents are stored
-    description: 'Info sobre requisitos'
-    create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {
-          label: 'Layout',
-          name: 'layout',
-          widget: 'hidden',
-          default: 'feature',
-        }
-      - { label: 'Titulo', name: 'titulo', widget: 'string' }
-      - { label: 'Subtitulo', name: 'subtitulo', widget: 'string' }
-      - {
-          label: 'Featured Image',
-          name: 'thumbnail',
-          widget: 'image',
-          required: false,
-        }
-      - { label: 'Descripcion', name: 'descripcion', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'precios' # Used in routes, e.g., /admin/collections/blog
-    label: 'Precios' # Used in the UI
-    label_singular: 'precio'
-    folder: '/content/precios' # The path to the folder where the documents are stored
-    description: 'Info sobre precios'
-    create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {
-          label: 'Layout',
-          name: 'layout',
-          widget: 'hidden',
-          default: 'feature',
-        }
-      - { label: 'Titulo', name: 'titulo', widget: 'string' }
-      - { label: 'Subtitulo', name: 'subtitulo', widget: 'string' }
-      - {
-          label: 'Featured Image',
-          name: 'thumbnail',
-          widget: 'image',
-          required: false,
-        }
-      - { label: 'Descripcion', name: 'descripcion', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'Textos' # Used in routes, e.g., /admin/collections/blog
-    label: 'textos' # Used in the UI
-    label_singular: 'texto'
-    folder: '/content/texto' # The path to the folder where the documents are stored
-    description: 'Info sobre precios'
-    create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {
-          label: 'Layout',
-          name: 'layout',
-          widget: 'hidden',
-          default: 'feature',
-        }
-      - { label: 'Titulo', name: 'titulo', widget: 'string' }
-      - { label: 'Subtitulo', name: 'subtitulo', widget: 'string' }
-      - {
-          label: 'Featured Image',
-          name: 'thumbnail',
-          widget: 'image',
-          required: false,
-        }
-      - { label: 'Descripcion', name: 'descripcion', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
       - {
           label: 'Pagina',
           name: 'pagina',
           widget: 'select',
-          options: ['natacion', 'correr', 'precio', 'ventajas', 'federo'],
+          options:
+            [
+              'infoGeneral',
+              'natacion',
+              'carrera',
+              'entrenadores',
+              'foro',
+              'requisitos',
+              'precios',
+              'ventajas',
+              'federarse',
+            ],
         }
+      - { label: 'Contenido', name: 'body', widget: 'markdown' }
