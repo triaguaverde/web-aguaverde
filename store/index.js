@@ -1,3 +1,5 @@
+import { PAGINAS } from '~/constantes/ejemplo.js'
+import { SECTIONS } from '../constantes/informacion.js'
 import Parser from '../parser/md_parser.js'
 const fs = require('fs')
 const parseMarkdown = require('front-matter-markdown')
@@ -7,22 +9,31 @@ const PAG =
 export const state = () => ({
   features: [],
   natacion: null,
+  pageContent: {},
 })
 
 export const mutations = {
   setFeatures: (state, list) => (state.features = list),
   setNatacion: (state, natacion) => (state.natacion = natacion),
+  setPageContent: (state, pageContent) => (state.pageContent = pageContent),
 }
 
 export const actions = {
   async nuxtServerInit({ commit }, { $content }) {
-    const features = await $content('features').only(['title', 'body']).fetch()
+    const content = {}
+    for (const page in SECTIONS) {
+      const p = SECTIONS[page]
+      content[p] = await $content('paginas', p).fetch()
+    }
+    // for (let page in PAGINAS) {
+    //   console.log(page)
+    //   let p = PAGINAS[page]
+    //   content[p] = await $content('paginas', p).fetch()
+    // }
     const natacion = await $content('paginas', 'natacion').fetch()
     console.log('----')
     console.log(natacion)
     await commit('setNatacion', natacion)
-    const paginas = await $content('paginas').only().fetch()
-    const clean = Parser.parseObject(features)
-    await commit('setFeatures', clean)
+    await commit('setPageContent', content)
   },
 }

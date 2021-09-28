@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="col-span-4 bg-white px-36 py-12 mt-1">
-      <nuxt-content :document="holis"></nuxt-content>
+      <nuxt-content :document="selectedSection"></nuxt-content>
     </div>
   </div>
 </template>
@@ -35,7 +35,8 @@ export default {
   data() {
     return {
       MENU_OPT,
-      selected: SECTIONS.info,
+      SECTIONS,
+      selected: SECTIONS.natacion,
     }
   },
   computed: {
@@ -43,9 +44,8 @@ export default {
       console.log(MENU_OPT)
       return 'hholi'
     },
-    holis() {
-      console.log(this.$store.state.natacion)
-      return this.$store.state.natacion
+    selectedSection() {
+      return this.$store.state.pageContent[this.selected]
     },
   },
 }

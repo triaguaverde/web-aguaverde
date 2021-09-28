@@ -1,13 +1,13 @@
 const SECTIONS = {
-  info: 'InfoGeneral',
-  natación: 'InfoNatacion',
-  running: 'InfoRunning',
-  entrenadores: 'InfoEntrenadores',
-  foro: 'InfoForo',
-  requisitos: 'InfoRequisitos',
-  precios: 'InfoPrecios',
-  ventajas: 'InfoVentajas',
-  federados: 'InfoFederados',
+  info: 'infoGeneral',
+  natacion: 'natacion',
+  carrera: 'carrera',
+  entrenadores: 'entrenadores',
+  foro: 'foro',
+  requisitos: 'requisitos',
+  precios: 'precios',
+  ventajas: 'ventajas',
+  federados: 'federarse',
 }
 
 const MENU_OPT = [
@@ -15,8 +15,8 @@ const MENU_OPT = [
     title: 'El Club',
     sect: [
       { label: 'Información', section: SECTIONS.info },
-      { label: '¿Dónde nadáis?', section: SECTIONS.natación },
-      { label: '¿Dónde corréis?', section: SECTIONS.running },
+      { label: '¿Dónde nadáis?', section: SECTIONS.natacion },
+      { label: '¿Dónde corréis?', section: SECTIONS.carrera },
       { label: 'Entrenadores', section: SECTIONS.entrenadores },
       { label: 'El foro', section: SECTIONS.foro },
     ],
