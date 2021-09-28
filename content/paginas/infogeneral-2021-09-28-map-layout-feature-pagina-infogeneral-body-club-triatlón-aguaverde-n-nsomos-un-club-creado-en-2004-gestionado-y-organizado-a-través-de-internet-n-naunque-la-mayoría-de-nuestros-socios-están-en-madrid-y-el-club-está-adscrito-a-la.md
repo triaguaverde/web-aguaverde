@@ -1,4 +1,5 @@
 ---
+nombre: InfoGeneral
 layout: feature
 pagina: infoGeneral
 ---
