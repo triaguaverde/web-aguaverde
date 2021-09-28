@@ -1,4 +1,5 @@
 ---
+nombre: Natacion
 layout: feature
 pagina: natacion
 ---
