@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="col-span-4 bg-white px-36 py-12 mt-1">
-      <InfoGeneral class="mx-auto" />
+      <nuxt-content :document="holis"></nuxt-content>
     </div>
   </div>
 </template>
@@ -42,6 +42,10 @@ export default {
     lol() {
       console.log(MENU_OPT)
       return 'hholi'
+    },
+    holis() {
+      console.log(this.$store.state.natacion)
+      return this.$store.state.natacion
     },
   },
 }

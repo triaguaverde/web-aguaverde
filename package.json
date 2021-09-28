@@ -11,6 +11,9 @@
   "dependencies": {
     "@nuxt/content": "^1.14.0",
     "core-js": "^3.15.1",
+    "front-matter-markdown": "^0.4.5",
+    "frontmatter-markdown-loader": "^3.6.3",
+    "fs": "0.0.1-security",
     "nuxt": "^2.15.7",
     "typeface-league-spartan": "0.0.44"
   },

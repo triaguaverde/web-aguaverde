@@ -1,15 +1,4 @@
-/* h1,
-h2 {
-  font-family: 'League Spartan', 'sans-serif';
-} */
-
-/* linear-gradient(
-180deg,#edf3ff 400px,#4f48ad 0,#4f48ad 60%,#2c2678); */
-
-/* 
-background: linear-gradient(
-  180deg,var(--primary-color),var(--secondary-color));
-  } */
+@import '../scss/styles.scss';
 
 body,
 html {

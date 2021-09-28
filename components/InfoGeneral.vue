@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="md:text-6xl font-bold text-av-green-dark">
+    <div class="md:text-6xl font-bold text-av-green-dark .back">
       {{ PAGINAS.titulo }}
     </div>
     <div
@@ -18,6 +18,7 @@
         {{ area.textoDespues }}
       </p>
     </div>
+    <nuxt-content :document="holis"></nuxt-content>
   </div>
 </template>
 
@@ -28,6 +29,12 @@ export default {
     return {
       PAGINAS,
     }
+  },
+  computed: {
+    holis() {
+      console.log(this.$store.state.natacion)
+      return this.$store.state.natacion
+    },
   },
 }
 </script>
