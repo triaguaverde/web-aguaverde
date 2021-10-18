@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col bg-grad">
-      <div class="bg-white my-auto box rounded-md shadow-md mx-auto px-36 pt-20"> 
+      <div class="bg-white my-auto box rounded-md shadow-md mx-auto px-36 pt-20 text-center"> 
             <h1 class="mx-auto gradient">Contacta con nosotros</h1>
             <div class="mx-auto text-center mt-20">
                 <p class="text-gray-800 text-3xl mt-10">Escríbenos a</p>
