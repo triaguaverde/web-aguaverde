@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-grad p-6 flex">
+  <div class="bg-grad p-6 flex justify-center box-height">
     <div
-      class="mx-auto my-auto md:grid md:grid-cols-3 md:gap-4 sm:grid-flow-row"
+      class="my-auto md:grid md:grid-cols-3 md:gap-3 sm:grid-flow-row"
     >
       <div
         v-for="feature in features"
@@ -11,14 +11,14 @@
           text-center
           row-span-1
           px-2
-          mt-6
           text-white
+          my-10
         "
       >
         <h1 class="m-auto text-2xl md:text-4xl font-bold text-white">
           {{ feature.title }}
         </h1>
-        <p class="mt-2 text-xl max-w-sm m-auto text-av-green-dark">
+        <p class="mt-2 text-xl max-w-2xl m-auto text-av-green-dark">
           {{ feature.description }}
         </p>
       </div>
@@ -64,5 +64,9 @@ export default {
 .bg-grad {
   background: linear-gradient(180deg, #4dba87, #8fd46a);
   min-height: 300px;
+}
+
+.box-height{
+  height: 800px
 }
 </style>
