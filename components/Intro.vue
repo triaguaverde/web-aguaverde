@@ -39,6 +39,9 @@ export default {
     current() {
       return this.words[this.index]
     },
+    selectedSection() {
+      return this.$store.state.pageContent[this.selected]
+    },
   },
   methods: {
     next() {

@@ -27,7 +27,7 @@ export const actions = {
     }
     const features =  await $content('features').fetch()
     console.log("!!!!!!")
-    console.log(features)
+    await commit('setFeatures', features)
     await commit('setPageContent', content)
   },
 }
