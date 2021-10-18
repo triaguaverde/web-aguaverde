@@ -25,15 +25,9 @@ export const actions = {
       const p = SECTIONS[page]
       content[p] = await $content('paginas', p).fetch()
     }
-    // for (let page in PAGINAS) {
-    //   console.log(page)
-    //   let p = PAGINAS[page]
-    //   content[p] = await $content('paginas', p).fetch()
-    // }
-    const natacion = await $content('paginas', 'natacion').fetch()
-    console.log('----')
-    console.log(natacion)
-    await commit('setNatacion', natacion)
+    const features =  await $content('features').fetch()
+    console.log("!!!!!!")
+    console.log(features)
     await commit('setPageContent', content)
   },
 }

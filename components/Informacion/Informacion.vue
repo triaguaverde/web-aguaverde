@@ -1,8 +1,8 @@
 <template>
   <div class="grid grid-cols-5 gap-1 content">
-    <div class="h-full bg-av-bg dots-bg px-6 py-12 shadow-sm">
+    <div class="h-full bg-av-bg dots-bg p-12 shadow-sm">
       <div v-for="opt in MENU_OPT" :key="opt.title">
-        <p class="font-bold title text-2xl mb-4">
+        <p class="font-bold title text-3xl mb-4">
           {{ opt.title }}
         </p>
         <p
@@ -23,7 +23,7 @@
         </p>
       </div>
     </div>
-    <div class="col-span-4 bg-white px-36 py-12 mt-1">
+    <div class="col-span-4 bg-white px-44 py-12 mt-1">
       <nuxt-content :document="selectedSection"></nuxt-content>
     </div>
   </div>
@@ -36,7 +36,7 @@ export default {
     return {
       MENU_OPT,
       SECTIONS,
-      selected: SECTIONS.natacion,
+      selected: SECTIONS.info,
     }
   },
   computed: {

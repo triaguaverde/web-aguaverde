@@ -15,7 +15,7 @@
       <div class="flex mt-4">
         <span class="mx-auto">
           <button class="button text">Hazte Socio</button>
-          <button class="button">Foro</button>
+          <a class="button" href="https://foro.aguaverde.org/" target="_blank">Foro</a>
         </span>
       </div>
     </div>

@@ -5,8 +5,8 @@
     /></nuxtLink>
     <div class="flex">
       <nuxtLink to="/info" class="option">Info</nuxtLink>
-      <nuxtLink to="/info" class="option">Blog</nuxtLink>
-      <nuxtLink to="/info" class="option">Contacto</nuxtLink>
+      <!-- <nuxtLink to="/info" class="option">Blog</nuxtLink> -->
+      <nuxtLink to="/contacto" class="option">Contacto</nuxtLink>
     </div>
   </div>
 </template>
