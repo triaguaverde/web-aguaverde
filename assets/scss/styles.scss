@@ -3,16 +3,16 @@
 }
 
 h1 {
-  @apply md:text-6xl font-extrabold text-gray-900 mb-8;
+  @apply text-2xl md:text-6xl font-extrabold text-gray-900 mb-8;
 }
 
 h2 {
-  @apply md:text-4xl font-bold mt-14 mb-4 text-av-green-dark;
+  @apply text-xl md:text-4xl font-bold mt-14 mb-4 text-av-green-dark;
 }
 
 h3 {
-  @apply md:text-xl font-bold mt-6 mb-4 ;
-  color: #7a9a8a
+  @apply text-lg md:text-xl font-bold mt-6 mb-4;
+  color: #7a9a8a;
 }
 
 p {
@@ -21,19 +21,17 @@ p {
 
 ul {
   @apply text-xl mt-2 text-gray-600 leading-9;
-
 }
 
-ul li::before{
-    content: '';
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    -moz-border-radius: 7.5px;
-    -webkit-border-radius: 7.5px;
-    border-radius: 7.5px;
-    margin-right: 8px;
-    margin-bottom: 2px;
-    background-color: #4dba87;
-  }
-
+ul li::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  border-radius: 7.5px;
+  margin-right: 8px;
+  margin-bottom: 2px;
+  background-color: #4dba87;
+}

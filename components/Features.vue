@@ -1,19 +1,10 @@
 <template>
   <div class="bg-grad p-6 flex justify-center box-height">
-    <div
-      class="my-auto md:grid md:grid-cols-3 md:gap-3 sm:grid-flow-row"
-    >
+    <div class="my-auto md:grid md:grid-cols-3 md:gap-3 sm:grid-flow-row">
       <div
         v-for="feature in features"
         :key="feature.titulo"
-        class="
-          max-w-lg
-          text-center
-          row-span-1
-          px-2
-          text-white
-          my-10
-        "
+        class="max-w-lg text-center row-span-1 px-2 text-white my-10"
       >
         <h1 class="m-auto text-2xl md:text-4xl font-bold text-white">
           {{ feature.title }}
@@ -52,11 +43,11 @@ export default {
   },
   computed: {
     features() {
-      console.log("-------------------")
+      console.log('-------------------')
       console.log(this.$store.state.features)
       return this.$store.state.features
     },
-  }
+  },
 }
 </script>
 
@@ -66,7 +57,7 @@ export default {
   min-height: 300px;
 }
 
-.box-height{
-  height: 800px
+.box-height {
+  height: fit-content;
 }
 </style>

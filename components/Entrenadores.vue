@@ -17,7 +17,7 @@
           text-center
           p-10
           pb-16
-          w-1/3
+          md:w-1/3
           tes-card
           shadow-xl
         "
@@ -64,7 +64,10 @@ export default {
     #4f48ad 60%,
     #2c2678
   );
-  height: 800px;
+  min-height: 800px;
+  @media only screen and (max-width: 600px) {
+    /* height: 800px; */
+  }
 }
 
 .card {
