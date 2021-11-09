@@ -23,7 +23,7 @@
         </p>
       </div>
     </div>
-    <div class="col-span-4 bg-white p-4 md:px-44 md:py-12 mt-1">
+    <div class="col-span-4 bg-white p-4 md:px-60 md:py-12 mt-1">
       <nuxt-content :document="selectedSection"></nuxt-content>
     </div>
     <div class="md:hidden p-6 green-gd">

@@ -64,10 +64,7 @@ export default {
     #4f48ad 60%,
     #2c2678
   );
-  min-height: 800px;
-  @media only screen and (max-width: 600px) {
-    /* height: 800px; */
-  }
+  height: fit-content;
 }
 
 .card {

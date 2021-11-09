@@ -1,8 +1,9 @@
 ---
-nombre: " Licencia de la federación"
+nombre: ' Licencia de la federación'
 layout: feature
 pagina: federarse
 ---
+
 # Licencia de la federación
 
 Muchos triatletas opinan que tienen un nivel demasiado bajo o que compiten en muy pocas pruebas y por tanto no les merece la pena federarse. Este **planteamiento es incorrecto**, puesto que la licencia federativa no sólo sirve para obtener descuento en las inscripciones de ciertas pruebas.
@@ -17,4 +18,4 @@ Los precios de las licencias son públicos y dependen de las Federaciones Territ
 
 Lo que sí hacemos desde el club es tramitar de forma gratuita y online a los socios la licencia en la Federación Madrileña Triatlón. Recuerda que **federarse a través de un club tiene descuento en el precio**.
 
-![logo Federación Madrileña Triatlón](https://aguaverde.org/assets/static/logo-triatlon-madrid-w500.ce8e67edb9b45c023eb86baa2814cf90.png)
+![logo Federación Madrileña Triatlón](images/logo-triatlon-madrid.png)

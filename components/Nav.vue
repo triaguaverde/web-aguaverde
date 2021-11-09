@@ -1,7 +1,7 @@
 <template>
-  <div class="flex bg-white header shadow-md h-24 p-4 px-10">
+  <div class="flex bg-white header shadow-sm h-24 p-4 px-10">
     <nuxtLink to="/" class="cursor-pointer"
-      ><img src="../assets/logo.jpg" width="140" class="mr-6"
+      ><img src="../assets/logo.jpg" width="140" class="mr-8"
     /></nuxtLink>
     <div class="flex">
       <nuxtLink to="/info" class="option">Info</nuxtLink>
@@ -17,6 +17,6 @@ export default {}
 
 <style scoped>
 .option {
-  @apply mr-6 text-xl text-gray-600 hover:text-gray-900 my-auto cursor-pointer;
+  @apply mx-3 text-sm md:text-xl text-gray-600 hover:text-gray-900 my-auto cursor-pointer;
 }
 </style>
