@@ -15,7 +15,12 @@
       <div class="flex mt-4">
         <span class="mx-auto">
           <button class="button text">Hazte Socio</button>
-          <a class="button" href="https://foro.aguaverde.org/" target="_blank">Foro</a>
+          <a
+            class="button text"
+            href="https://foro.aguaverde.org/"
+            target="_blank"
+            >Foro</a
+          >
         </span>
       </div>
     </div>
@@ -73,17 +78,16 @@ export default {
   transition: all 0.1s ease-in-out;
 }
 
-.text {
+.text:hover {
   background: linear-gradient(180deg, #4dba87, #8fd46a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .button {
-  @apply border-2 border-solid 
-              rounded 
+  @apply border-2 border-solid
+              rounded
               p-4
-              font-bold
-              text-black m-4 hover:border-av-green-s hover:text-av-green-dark shadow-lg text-xl md:text-2xl;
+              font-bold m-4 hover:border-av-green-s text-av-green-dark shadow-lg text-xl md:text-2xl;
 }
 </style>
