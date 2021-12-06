@@ -3,11 +3,11 @@
 }
 
 h1 {
-  @apply text-2xl md:text-6xl font-extrabold text-gray-900 mb-8;
+  @apply text-3xl md:text-6xl font-extrabold text-gray-900 mb-8;
 }
 
 h2 {
-  @apply text-xl md:text-4xl font-bold mt-14 mb-4 text-av-green-dark;
+  @apply text-2xl md:text-4xl font-bold mt-14 mb-4 text-av-green-dark;
 }
 
 h3 {
@@ -16,11 +16,11 @@ h3 {
 }
 
 p {
-  @apply text-xl mt-2 text-gray-600 leading-9 mb-4;
+  @apply text-2xl mt-2 text-gray-600 leading-9 mb-4;
 }
 
 ul {
-  @apply text-xl mt-2 text-gray-600 leading-9;
+  @apply text-2xl mt-2 text-gray-600 leading-9;
 }
 
 ul li::before {

@@ -14,9 +14,9 @@
       </h1>
       <div class="flex mt-4">
         <span class="mx-auto">
-          <button class="button text">Hazte Socio</button>
+          <button class="button text-st">Hazte Socio</button>
           <a
-            class="button text"
+            class="button text-st"
             href="https://foro.aguaverde.org/"
             target="_blank"
             >Foro</a
@@ -59,7 +59,7 @@ export default {
 
 <style scoped>
 .fondo {
-  background-image: url('assets/background_white.jpg');
+  background-image: url('assets/images/background_white.jpg');
   height: 500px;
 }
 
@@ -78,7 +78,8 @@ export default {
   transition: all 0.1s ease-in-out;
 }
 
-.text:hover {
+.text,
+.text-st:hover {
   background: linear-gradient(180deg, #4dba87, #8fd46a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

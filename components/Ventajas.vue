@@ -4,7 +4,7 @@
       ¿Qué te aporta el Aguaverde?
     </h1>
     <div class="hidden md:block">
-      <img src="../assets/ventajas.png" width="80%" class="mx-auto" />
+      <img src="../assets/images/ventajas.png" width="80%" class="mx-auto" />
     </div>
     <div class="md:hidden">
       <img src="../assets/movil/aporta-1.png" width="80%" class="mx-auto" />
