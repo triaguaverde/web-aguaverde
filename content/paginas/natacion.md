@@ -8,7 +8,7 @@ pagina: natacion
 
 Entrenamos la natación en la piscina del polideportivo Marqués de Samaranch en Arganzuela.
 
-![](/images/natacion.png)
+![](/images/natacion.png)class="lazyload"
 
 ## Escríbenos
 
