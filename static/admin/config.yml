@@ -28,39 +28,39 @@ collections:
           required: false,
         }
       - { label: 'Description', name: 'description', widget: 'string' }
-  - name: 'entrenadores' # Used in routes, e.g., /admin/collections/blog
-    label: 'Entrenadoes' # Used in the UI
-    label_singular: 'entrenador'
-    folder: '/content/entrenadores' # The path to the folder where the documents are stored
-    description: 'entrenadores'
-    create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {
-          label: 'Layout',
-          name: 'layout',
-          widget: 'hidden',
-          default: 'feature',
-        }
-      - { label: 'Nombre', name: 'nombre', widget: 'string' }
-      - {
-          label: 'Responsabilidad',
-          name: 'responsabilidades',
-          widget: 'string',
-        }
-      - {
-          label: "Licencias (dividir con ',')",
-          name: 'licencias',
-          widget: 'string',
-        }
-      - { label: 'Descripcion', name: 'descripcion', widget: 'string' }
-      - {
-          label: 'Featured Image',
-          name: 'thumbnail',
-          widget: 'image',
-          required: false,
-        }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+  # - name: 'entrenadores' # Used in routes, e.g., /admin/collections/blog
+  #   label: 'Entrenadoes' # Used in the UI
+  #   label_singular: 'entrenador'
+  #   folder: '/content/entrenadores' # The path to the folder where the documents are stored
+  #   description: 'entrenadores'
+  #   create: true # Allow users to create new documents in this collection
+  #   slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+  #   fields: # The fields for each document, usually in front matter
+  #     - {
+  #         label: 'Layout',
+  #         name: 'layout',
+  #         widget: 'hidden',
+  #         default: 'feature',
+  #       }
+  #     - { label: 'Nombre', name: 'nombre', widget: 'string' }
+  #     - {
+  #         label: 'Responsabilidad',
+  #         name: 'responsabilidades',
+  #         widget: 'string',
+  #       }
+  #     - {
+  #         label: "Licencias (dividir con ',')",
+  #         name: 'licencias',
+  #         widget: 'string',
+  #       }
+  #     - { label: 'Descripcion', name: 'descripcion', widget: 'string' }
+  #     - {
+  #         label: 'Featured Image',
+  #         name: 'thumbnail',
+  #         widget: 'image',
+  #         required: false,
+  #       }
+  #     - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'paginas' # Used in routes, e.g., /admin/collections/blog
     label: 'paginas' # Used in the UI
     label_singular: 'pagina'
