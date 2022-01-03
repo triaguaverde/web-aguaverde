@@ -22,12 +22,12 @@
           shadow-xl
         "
       >
-        <img :src="entrenador.image" />
+        <img :src="entrenador.thumbnail" />
         <h1 class="text-2xl md:text-4xl font-bold text-av-darker-morado mb-2">
           {{ entrenador.nombre }}
         </h1>
         <p class="mt-4 text-xl md:text-2xl font-light text-gray-700">
-          {{ entrenador.desc }}
+          {{ entrenador.descripcion }}
         </p>
       </div>
     </div>
@@ -36,21 +36,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      entrenadores: [
-        {
-          nombre: 'José Antonio Fanego',
-          desc: 'Estoy muy contento y motivado de pertenecer a Aguaverde. Cada semana intento que mis compañeros amen un poco más este deporte',
-          image: require('../assets/entrenadores/fanego.jpg'),
-        },
-        {
-          nombre: 'Pablo García Traba',
-          desc: 'La filosofía del club encaja con mi forma de ser y así intento transmitirlo en la cancha. ¡Triatlón como filosofía de vida!',
-          image: require('../assets/entrenadores/loko.jpg'),
-        },
-      ],
-    }
+  computed: {
+    entrenadores() {
+      return this.$store.state.entrenadores
+    },
   },
 }
 </script>

@@ -4,15 +4,15 @@
     <div class="flex mt-6">
       <div class="mx-auto flex flex-col md:flex-row my-4">
         <a
-          v-for="sponsor in sponsors"
-          :key="sponsor.name"
+          v-for="sponsor in patrocinadores"
+          :key="sponsor.slug"
           :href="campaignUrl(sponsor.url)"
           target="_blank"
           rel="noopener"
           class="m-4"
           style="width: 140px"
         >
-          <img :src="sponsor.logo" :alt="sponsor.name" />
+          <img :src="sponsor.thumbnail" :alt="sponsor.slug" />
         </a>
       </div>
     </div>
@@ -36,6 +36,11 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    patrocinadores() {
+      return this.$store.state.patrocinadores
+    },
   },
   methods: {
     campaignUrl(url) {

@@ -4,17 +4,20 @@ import Parser from '../parser/md_parser.js'
 const fs = require('fs')
 const parseMarkdown = require('front-matter-markdown')
 
-const PAG =
-  'natacion-2021-09-27-map-layout-feature-pagina-natacion-body-¿dónde-nadáis-n-nentrenamos-la-natación-en-la-piscina-del-polideportivo-marqués-de-samaranch-en-arganzuela-n-n-img-5-jpg-n-n-n-n-escríbenos-n-nsi-te-interesa-nadar-en-aguaverde-env'
 export const state = () => ({
   features: [],
   natacion: null,
   pageContent: {},
+  entrenadores: [],
+  patrocinadores: [],
 })
 
 export const mutations = {
   setFeatures: (state, list) => (state.features = list),
   setNatacion: (state, natacion) => (state.natacion = natacion),
+  setEntrenadores: (state, entrenadores) => (state.entrenadores = entrenadores),
+  setPatrocinadores: (state, patrocinadores) =>
+    (state.patrocinadores = patrocinadores),
   setPageContent: (state, pageContent) => (state.pageContent = pageContent),
 }
 
@@ -25,9 +28,13 @@ export const actions = {
       const p = SECTIONS[page]
       content[p] = await $content('paginas', p).fetch()
     }
-    const features =  await $content('features').fetch()
-    console.log("!!!!!!")
+    const features = await $content('features').fetch()
+    const entrenadores = await $content('entrenadores').fetch()
+    const patrocinadores = await $content('patrocinadores').fetch()
+
     await commit('setFeatures', features)
+    await commit('setEntrenadores', entrenadores)
+    await commit('setPatrocinadores', patrocinadores)
     await commit('setPageContent', content)
   },
 }
