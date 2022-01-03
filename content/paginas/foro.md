@@ -5,7 +5,7 @@ pagina: foro
 ---
 # El foro
 
-Como hemos dicho en la introducción, el principio básico del Aguaverde es que es un club que se apoya en el uso de las **nuevas tecnologías** utilizando para ello los foros de Internet. De esta manera, el principal contacto que tienen los socios de comunicarse entre ellos es haciendo uso del foro.
+Como hemos dicho en la introducción, el principio básico del Aguaverde es que es un club que se apoya en el uso de las **nuevas tecnologías** utilizando para ello los foros de Internet. De esta manera, el principal contacto que tienen los socios de comunicarse entre ellos es haciendo uso del [foro](https://foro.aguaverde.org/).
 
 En el foro se proponen quedadas, se ponen competiciones y se habla de cosas relacionadas o no con el deporte, como descuentos a tiendas, consejos deportivos, etc. De esta forma, un socio se puede mantener actualizado en todo momento y puede conocer y entablar conversación con el resto de socios de una forma más sencilla.
 
@@ -19,4 +19,4 @@ Si te quieres registrar como no socio en el foro, simplemente a la hora de regis
 
 ### [](https://aguaverde.org/info/foro#como-socio)Como socio
 
-Si por el contrario quieres registrarte como socio, selecciona la opción, “estoy de acuerdo, registrarme como socio”. De esta forma, se te pedirán los datos personales necesarios para formar parte del club. Una vez guardados tus datos, te saldrá un aviso para proceder al pago de la cuota a través de Paypal. Finalmente, comprobado el pago por parte del tesorero, te serán concedidos los permisos correspondientes y te será dada la bienvenida pública a través del foro.
+Si por el contrario quieres registrarte como socio, selecciona la opción, “estoy de acuerdo, registrarme como socio”. De esta forma, se te pedirán los datos personales necesarios para formar parte del club. Una vez guardados tus datos, podrás proceder al pago de la cuota. Finalmente, comprobado el pago por parte del tesorero, te serán concedidos los permisos correspondientes y te será dada la bienvenida pública a través del foro.

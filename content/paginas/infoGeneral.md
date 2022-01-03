@@ -3,7 +3,6 @@ nombre: InfoGeneral
 layout: feature
 pagina: infoGeneral
 ---
-
 # Club Triatlón Aguaverde
 
 Somos un club creado en 2004, gestionado y organizado a través de internet.
@@ -12,12 +11,11 @@ Aunque la mayoría de nuestros socios están en Madrid y el club está adscrito 
 
 ![](/images/triatlon_villa_de_madrid.png)
 
-- Club sin compromisos ⚡️
-- Cuota barata ⚡️
-- Natación en pleno centro de Madrid ⚡️
-- Grupo de supernenas ⚡️
-- Foro activo ⚡️
-- Más de 100 socios ⚡️
+* Club sin compromisos ⚡️
+* Posiblemente la cuota más barata de Madrid ⚡️
+* Natación en pleno centro de Madrid ⚡️
+* Grupo de supernenas ⚡️
+* Uno de los [foros de triatlón](https://foro.aguaverde.org/) más activos ⚡️
 
 ## [](https://aguaverde.org/info#importante)Importante
 
