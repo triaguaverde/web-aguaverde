@@ -14,7 +14,10 @@
       </h1>
       <div class="flex mt-4">
         <span class="mx-auto">
-          <button class="button text-st">Hazte Socio</button>
+          <!-- <button class="button text-st">Hazte Socio</button> -->
+          <nuxtLink to="/requisitos" class="button text-st"
+            >Hazte Socio</nuxtLink
+          >
           <a
             class="button text-st"
             href="https://foro.aguaverde.org/"

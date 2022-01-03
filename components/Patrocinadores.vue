@@ -2,14 +2,14 @@
   <div class="bg-av-bg text-center items-center p-6">
     <h1 class="text-2xl md:text-4xl font-bold">Patrocinadores</h1>
     <div class="flex mt-6">
-      <div class="mx-auto flex flex-col md:flex-row my-4">
+      <div class="mx-auto flex flex-wrap">
         <a
           v-for="sponsor in patrocinadores"
           :key="sponsor.slug"
           :href="campaignUrl(sponsor.url)"
           target="_blank"
           rel="noopener"
-          class="m-4"
+          class="m-8 self-center"
           style="width: 140px"
         >
           <img :src="sponsor.thumbnail" :alt="sponsor.slug" />

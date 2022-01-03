@@ -3,22 +3,20 @@
     <h1 class="text-2xl md:text-4xl font-bold my-2 mb-24">
       ¿Qué opinan nuestros entrenadores?
     </h1>
-    <div class="flex flex-col md:flex-row mt-10">
+    <div class="flex flex-wrap mt-10 content-center">
       <div
         v-for="entrenador in entrenadores"
         :key="entrenador.nombre"
         class="
           bg-white
           rounded-lg
-          mx-auto
-          my-8
-          md:my-auto
           relative
           text-center
           p-10
           pb-16
           md:w-1/3
           tes-card
+          m-8
           shadow-xl
         "
       >
@@ -66,5 +64,9 @@ export default {
   height: 12rem;
   margin: -4rem auto 0.5rem;
   width: 12rem;
+}
+
+.content-center {
+  justify-content: center;
 }
 </style>

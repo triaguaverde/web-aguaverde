@@ -1,5 +1,5 @@
 <template>
-  <div class="md:grid md:grid-cols-5 gap-1 content">
+  <div class="md:grid md:grid-cols-5 gap-1 content" v-if="selected">
     <div class="h-full bg-av-bg dots-bg p-12 shadow-sm hidden md:block">
       <div v-for="opt in MENU_OPT" :key="opt.title">
         <p class="font-bold title text-xl md:text-3xl mb-4">
@@ -19,7 +19,9 @@
           :key="sect.label"
           @click="selected = sect.section"
         >
-          {{ sect.label }}
+          <nuxtLink :to="sect.section" class="option">{{
+            sect.label
+          }}</nuxtLink>
         </p>
       </div>
     </div>
@@ -44,27 +46,32 @@
 <script>
 import { MENU_OPT, SECTIONS } from '../../constantes/informacion'
 export default {
+  props: {
+    section: {
+      type: String,
+      default: null,
+    },
+  },
   data() {
     return {
       MENU_OPT,
       SECTIONS,
-      selected: SECTIONS.info,
+      selected: null,
     }
   },
   computed: {
-    lol() {
-      console.log(MENU_OPT)
-      return 'hholi'
-    },
     selectedSection() {
       return this.$store.state.pageContent[this.selected]
     },
+  },
+  created() {
+    console.log(this.section)
+    this.selected = this.section ? SECTIONS[this.section] : this.SECTIONS.info
   },
   methods: {
     changeSection(section) {
       this.selected = section
       let element = document.getElementsByTagName('h1')
-      console.log(element)
       element[0].scrollIntoView({
         behavior: 'smooth',
         block: 'end',

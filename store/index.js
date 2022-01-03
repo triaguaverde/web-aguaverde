@@ -1,12 +1,7 @@
-import { PAGINAS } from '~/constantes/ejemplo.js'
 import { SECTIONS } from '../constantes/informacion.js'
-import Parser from '../parser/md_parser.js'
-const fs = require('fs')
-const parseMarkdown = require('front-matter-markdown')
 
 export const state = () => ({
   features: [],
-  natacion: null,
   pageContent: {},
   entrenadores: [],
   patrocinadores: [],
@@ -14,7 +9,6 @@ export const state = () => ({
 
 export const mutations = {
   setFeatures: (state, list) => (state.features = list),
-  setNatacion: (state, natacion) => (state.natacion = natacion),
   setEntrenadores: (state, entrenadores) => (state.entrenadores = entrenadores),
   setPatrocinadores: (state, patrocinadores) =>
     (state.patrocinadores = patrocinadores),

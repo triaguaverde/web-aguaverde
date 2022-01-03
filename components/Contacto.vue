@@ -16,13 +16,14 @@
     >
       <h1 class="mx-auto text-xl md:text-4xl mb-0">Contacta con nosotros</h1>
       <img width="200" src="../assets/logos/eusebia.png" />
-      <div class="mx-auto text-center mt-4 md:mt-6">
+      <div class="mx-auto text-center mt-4 md:mt-6 w-full">
         <p class="text-gray-800 text-lg md:text-3xl mt-10">Escríbenos a</p>
         <p
           class="
             gradient
             text-xl
-            md:text-5xl
+            lg:text-5xl
+            md:text-3xl
             font-bold
             cursor-pointer
             md:pb-6 md:mb-0

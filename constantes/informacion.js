@@ -7,27 +7,27 @@ const SECTIONS = {
   requisitos: 'requisitos',
   precios: 'precios',
   ventajas: 'ventajas',
-  federados: 'federarse',
+  federarse: 'federarse',
 }
 
 const MENU_OPT = [
   {
     title: 'El Club',
     sect: [
-      { label: 'Información', section: SECTIONS.info },
-      { label: '¿Dónde nadáis?', section: SECTIONS.natacion },
-      { label: '¿Dónde corréis?', section: SECTIONS.carrera },
-      { label: 'Entrenadores', section: SECTIONS.entrenadores },
-      { label: 'El foro', section: SECTIONS.foro },
+      { label: 'Información', section: 'info' },
+      { label: '¿Dónde nadáis?', section: 'natacion' },
+      { label: '¿Dónde corréis?', section: 'carrera' },
+      { label: 'Entrenadores', section: 'entrenadores' },
+      { label: 'El foro', section: 'foro' },
     ],
   },
   {
     title: 'Hazte Socio',
     sect: [
-      { label: 'Requisitos', section: SECTIONS.requisitos },
-      { label: 'Precios', section: SECTIONS.precios },
-      { label: 'Ventajas', section: SECTIONS.ventajas },
-      { label: '¿Me federo?', section: SECTIONS.federados },
+      { label: 'Requisitos', section: 'requisitos' },
+      { label: 'Precios', section: 'precios' },
+      { label: 'Ventajas', section: 'ventajas' },
+      { label: '¿Me federo?', section: 'federarse' },
     ],
   },
 ]
