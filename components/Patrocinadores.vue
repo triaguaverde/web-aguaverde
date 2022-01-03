@@ -25,11 +25,6 @@ export default {
     return {
       sponsors: [
         {
-          name: 'Globerada',
-          url: 'https://www.globerada.com/',
-          logo: require('~/assets/logos/logo_globerada.png'),
-        },
-        {
           name: 'Althea Fisioterapia',
           url: 'https://altheafisioterapia.com/',
           logo: require('~/assets/logos/logo_althea.png'),
