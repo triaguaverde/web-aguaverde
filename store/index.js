@@ -13,6 +13,7 @@ export const mutations = {
   setPatrocinadores: (state, patrocinadores) =>
     (state.patrocinadores = patrocinadores),
   setPageContent: (state, pageContent) => (state.pageContent = pageContent),
+  setPosts: (state, posts) => (state.pageContent = posts),
 }
 
 export const actions = {
@@ -25,10 +26,12 @@ export const actions = {
     const features = await $content('features').fetch()
     const entrenadores = await $content('entrenadores').fetch()
     const patrocinadores = await $content('patrocinadores').fetch()
+    const posts = await $content('posts').fetch()
 
     await commit('setFeatures', features)
     await commit('setEntrenadores', entrenadores)
     await commit('setPatrocinadores', patrocinadores)
     await commit('setPageContent', content)
+    await commit('setPosts', posts)
   },
 }
