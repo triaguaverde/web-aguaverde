@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  # branch: master # Branch to update (optional; defaults to master)
+  branch: blog_posts # Branch to update (optional; defaults to master)
 
 media_folder: static/img
 public_folder: /img
@@ -19,6 +20,27 @@ collections:
           name: 'layout',
           widget: 'hidden',
           default: 'feature',
+        }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Featured Image',
+          name: 'thumbnail',
+          widget: 'image',
+          required: false,
+        }
+      - { label: 'Description', name: 'description', widget: 'string' }
+  - name: 'posts' # Used in routes, e.g., /admin/collections/blog
+    label: 'Posts' # Used in the UI
+    label_singular: 'posts'
+    folder: '/content/posts' # The path to the folder where the documents are stored
+    description: 'Posts - News'
+    create: true # Allow users to create new documents in this collection
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'hidden',
         }
       - { label: 'Title', name: 'title', widget: 'string' }
       - {
