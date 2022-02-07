@@ -10,6 +10,7 @@
         <nuxtLink to="/info" class="option">Info</nuxtLink>
         <!-- <nuxtLink to="/info" class="option">Blog</nuxtLink> -->
         <nuxtLink to="/contacto" class="option">Contacto</nuxtLink>
+        <nuxtLink to="/blog" class="option">Noticias</nuxtLink>
         <a href="https://foro.aguaverde.org/" target="_blank" class="option"
           >Foro</a
         >
