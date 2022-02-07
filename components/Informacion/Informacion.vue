@@ -65,7 +65,6 @@ export default {
     },
   },
   created() {
-    console.log(this.section)
     this.selected = this.section ? SECTIONS[this.section] : this.SECTIONS.info
   },
   methods: {

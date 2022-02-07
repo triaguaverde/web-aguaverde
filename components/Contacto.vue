@@ -8,31 +8,32 @@
         rounded-md
         shadow-md
         mx-auto
-        px-6
-        pt-8
-        md:px-36 md:pt-20
+        px-4
+        py-8
+        md:max-w-4xl md:pt-20
         text-center
+        fit-h
       "
     >
-      <h1 class="mx-auto text-xl md:text-4xl mb-0">Contacta con nosotros</h1>
+      <h1 class="mx-auto text-xl md:text-3xl mb-0">Contacta con nosotros</h1>
       <img width="200" src="../assets/logos/eusebia.png" />
-      <div class="mx-auto text-center mt-4 md:mt-6 w-full">
-        <p class="text-gray-800 text-lg md:text-3xl mt-10">Escríbenos a</p>
+      <div class="mx-auto text-center mt-2 md:mt-6 w-full">
+        <p class="text-gray-800 text-lg md:text-2xl mt-10">Escríbenos a</p>
         <p
           class="
             gradient
             text-xl
-            lg:text-5xl
+            lg:text-4xl
             md:text-3xl
             font-bold
             cursor-pointer
-            md:pb-6 md:mb-0
+            md:pb-2 md:mb-0
           "
           @click="sendMail"
         >
           triatlon@aguaverde.org
         </p>
-        <p class="text-gray-800 text-lg md:text-3xl mt-4">
+        <p class="text-gray-800 text-lg md:text-3xl">
           o manda un WhatsApp al
         </p>
         <p class="gradient text-xl md:text-5xl font-bold">632 098 456</p>
@@ -79,5 +80,9 @@ export default {
 
 .text-purp {
   color: #4f48ad;
+}
+
+.fit-h {
+  height: fit-content;
 }
 </style>
