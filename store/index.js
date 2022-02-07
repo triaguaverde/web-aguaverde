@@ -13,7 +13,7 @@ export const mutations = {
   setPatrocinadores: (state, patrocinadores) =>
     (state.patrocinadores = patrocinadores),
   setPageContent: (state, pageContent) => (state.pageContent = pageContent),
-  setPosts: (state, posts) => (state.pageContent = posts),
+  setPosts: (state, posts) => (state.posts = posts),
 }
 
 export const actions = {
