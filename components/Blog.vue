@@ -19,10 +19,9 @@ export default {
     name:"BlogNews",
     computed: {
         posts(){
-            const p = Object.assign({}, this.$store.state.posts)
-            return Object.values(p).sort(function(a,b){
-             return new Date(createdAt.date) - new Date(createdAt.date);
-            });
+            const p = Object.assign({}, this.$store.state.posts);
+            if (p[0]) return Object.values(p).reverse();
+            else return [];
         }
     }
 }
