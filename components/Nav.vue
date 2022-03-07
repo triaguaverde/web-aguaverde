@@ -1,10 +1,10 @@
 <template>
   <div
-    class="flex bg-white header shadow-sm h-24 p-4 px-4 md:px-10 items-center"
+    class="flex bg-white header shadow-sm p-4 px-4 md:px-10 items-center md:h-24"
   >
-    <div class="flex flex-1">
+    <div class="md:flex md:flex-1 w-full">
       <nuxtLink to="/" class="cursor-pointer"
-        ><img src="../assets/logos/logo.jpg" width="80%" class="mr-8"
+        ><img src="../assets/logos/logo.jpg" class="md:mr-8 mx-auto my-2" 
       /></nuxtLink>
       <div class="flex">
         <nuxtLink to="/info" class="option">Info</nuxtLink>

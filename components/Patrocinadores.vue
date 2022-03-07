@@ -9,7 +9,7 @@
           :href="campaignUrl(sponsor.url)"
           target="_blank"
           rel="noopener"
-          class="m-8 self-center"
+          class="my-8 mx-auto px-2 self-center"
           style="width: 140px"
         >
           <img :src="sponsor.thumbnail" :alt="sponsor.slug" />

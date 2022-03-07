@@ -16,7 +16,8 @@
           pb-16
           md:w-1/3
           tes-card
-          m-8
+          md:m-8
+          my-8
           shadow-xl
         "
       >

@@ -55,7 +55,7 @@ export default {
     }
 
     .bg-not {
-       background: linear-gradient(to right, rgb(86, 171, 47), rgb(168, 224, 99));
+       background: linear-gradient(180deg, #3b9141e6, #8fd46a);
 
     }
 
