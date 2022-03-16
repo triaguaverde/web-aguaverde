@@ -15,7 +15,8 @@
     "frontmatter-markdown-loader": "^3.6.3",
     "fs": "0.0.1-security",
     "nuxt": "^2.15.7",
-    "typeface-league-spartan": "0.0.44"
+    "typeface-league-spartan": "0.0.44",
+    "vue-full-calendar": "^2.8.1-0"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.2.1",

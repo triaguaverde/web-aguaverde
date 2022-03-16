@@ -15,6 +15,13 @@
 <body>
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+  window.onLoadCallback = function(){
+    gapi.auth2.init({
+        client_id: 'filler_text_for_client_id.apps.googleusercontent.com'
+      });
+  }
+  </script>
 </body>
 
 </html>
