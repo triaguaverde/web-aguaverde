@@ -8,7 +8,7 @@
             <div v-for="post in posts" :key="post.slug" class="md:w-8/12 bg-white rounded-md mx-auto p-8 shadow-md mb-4 md:mb-8">
                 <div class="w-full text-center">
                 <h2 class="my-2">{{post.title}}</h2></div>
-                <img v-if="post.thumbnail" width="30%" :src="post.thumbnail">
+                <img v-if="post.thumbnail" class="md:w-1/3" :src="post.thumbnail">
                 <nuxt-content :document="post"></nuxt-content>
             </div>
         </div>
