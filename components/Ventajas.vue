@@ -1,8 +1,5 @@
 <template>
-  <div class="text-center py-10">
-    <h1 class="text-2xl md:text-4xl font-bold mb-10">
-      ¿Qué te aporta el Aguaverde?
-    </h1>
+  <div class="text-center py-10 bg-white">
     <div class="hidden md:block">
       <img src="../assets/images/ventajas.png" width="80%" class="mx-auto" />
     </div>

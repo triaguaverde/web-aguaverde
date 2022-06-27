@@ -1,32 +1,13 @@
 <template>
-  <div class="fondo text-center py-6 text-gray-800 flex">
-    <div class="my-auto mx-auto">
-      <h1 class="text-2xl md:text-4xl font-bold my-2">Triatlón Aguaverde</h1>
-      <div class="h-10 md:h-20">
-        <transition name="fade">
-          <h1 :key="current" class="text-4xl md:text-6xl font-bold text">
-            {{ current }}
-          </h1>
-        </transition>
-      </div>
-      <h1 class="text-2xl md:text-4xl font-bold mb-2">
-        Tu club de triatlón en Madrid
+  <div class="bg-gray-50 px-4 pt-2">
+    <transition name="fade">
+      <h1
+        :key="current"
+        class="text-4xl md:text-6xl font-bold text-av-dark-gray m-0"
+      >
+        {{ current }}
       </h1>
-      <div class="flex mt-4">
-        <span class="mx-auto">
-          <!-- <button class="button text-st">Hazte Socio</button> -->
-          <nuxtLink to="/requisitos" class="button text-st"
-            >Hazte Socio</nuxtLink
-          >
-          <a
-            class="button text-st"
-            href="https://foro.aguaverde.org/"
-            target="_blank"
-            >Foro</a
-          >
-        </span>
-      </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -62,7 +43,7 @@ export default {
 
 <style scoped>
 .fondo {
-  background-image: url('assets/images/background_white.jpg');
+  background-image: url('assets/images/running.png');
   height: 500px;
 }
 

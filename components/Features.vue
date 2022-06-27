@@ -1,17 +1,29 @@
 <template>
-  <div class="bg-grad p-6 flex justify-center box-height">
-    <div class="my-auto flex flex-wrap py-4 md:py-20">
+  <div class="fondo py-6 flex justify-center box-height">
+    <div class="my-auto flex flex-wrap py-4 md:py-20 md:justify-around">
       <div
         v-for="feature in features"
         :key="feature.titulo"
-        class="text-center px-2 md:px-20 text-white my-10 md:my-16 md:w-1/3"
+        class="
+          text-center
+          md:p-6 md:px-8 md:mx-4
+          my-10
+          md:my-16 md:w-1/4
+          bg-white
+          rounded-lg
+          justify-center
+          flex
+          bg-opacity-90
+        "
       >
-        <h1 class="m-auto text-2xl md:text-4xl font-bold text-white">
-          {{ feature.title }}
-        </h1>
-        <p class="mt-2 text-xl max-w-2xl m-auto text-av-green-dark">
-          {{ feature.description }}
-        </p>
+        <div class="m-auto">
+          <h1 class="m-auto text-2xl md:text-4xl font-bold text-av-green-s">
+            {{ feature.title }}
+          </h1>
+          <p class="mt-2 text-xl max-w-2xl m-auto text-av-dark-gray">
+            {{ feature.description }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -28,9 +40,14 @@ export default {
 </script>
 
 <style scoped>
-.bg-grad {
+.fondo {
+  background-image: url('assets/images/biciEquipo.png');
+  background-repeat: no-repeat;
+  height: 700px;
+  background-size: cover;
+}
+.bg-gradda {
   background: linear-gradient(180deg, #4dba87, #8fd46a);
-  min-height: 300px;
 }
 
 .box-height {

@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-av-bg text-center items-center p-6">
-    <h1 class="text-2xl md:text-4xl font-bold">Patrocinadores</h1>
-    <div class="flex mt-6">
+  <div class="bg-white text-center items-center p-6 pb-4">
+    <h1 class="text-2xl md:text-4xl font-bold">PATROCINADORES</h1>
+    <div class="flex mt-4">
       <div class="mx-auto flex flex-wrap">
         <a
           v-for="sponsor in patrocinadores"
@@ -9,8 +9,8 @@
           :href="campaignUrl(sponsor.url)"
           target="_blank"
           rel="noopener"
-          class="my-8 mx-auto px-2 self-center"
-          style="width: 140px"
+          class="mx-8 self-center"
+          style="width: 220px"
         >
           <img :src="sponsor.thumbnail" :alt="sponsor.slug" />
         </a>

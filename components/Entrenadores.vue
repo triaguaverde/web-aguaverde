@@ -1,32 +1,55 @@
 <template>
-  <div class="bg-grad p-6 md:p-32 relative text-center">
-    <h1 class="text-2xl md:text-4xl font-bold my-2 mb-24">
-      ¿Qué opinan nuestros entrenadores?
-    </h1>
-    <div class="flex flex-wrap mt-10 content-center">
-      <div
-        v-for="entrenador in entrenadores"
-        :key="entrenador.nombre"
-        class="
-          bg-white
-          rounded-lg
-          relative
-          text-center
-          p-10
-          pb-16
-          md:w-1/3
-          tes-card
-          md:m-8
-          my-8
-          shadow-xl
-        "
-      >
-        <img :src="entrenador.thumbnail" />
-        <h1 class="text-2xl md:text-4xl font-bold text-av-darker-morado mb-2">
-          {{ entrenador.nombre }}
-        </h1>
-        <p class="mt-4 text-xl md:text-2xl font-light text-gray-700">
-          {{ entrenador.descripcion }}
+  <div class="relative bg-av-dark-gray w-full left-0 overflow-hidden">
+    <div class="absolute -left-10">
+      <img
+        src="../assets/images/plantas/planta1.svg"
+        width="180px"
+        class="mr-8"
+      />
+    </div>
+
+    <div class="p-6 md:py-28 relative text-center">
+      <h1 class="text-2xl md:text-4xl font-bold mb-24 text-av-bg">
+        NUESTROS ENTRENADORES
+      </h1>
+      <div class="flex flex-wrap mt-10 content-center">
+        <div class="absolute right-0 bottom-0">
+          <img
+            src="../assets/images/plantas/planta2.svg"
+            width="180px"
+            class="mr-8"
+          />
+        </div>
+        <div
+          v-for="entrenador in entrenadores"
+          :key="entrenador.nombre"
+          class="
+            bg-av-light-gray
+            rounded-xl
+            relative
+            text-center
+            p-10
+            pb-16
+            md:w-2/5
+            tes-card
+            m-8
+            shadow-xl
+          "
+        >
+          <img :src="entrenador.thumbnail" />
+          <h1 class="text-2xl md:text-4xl font-bold text-av-green-s mb-2 mt-4">
+            {{ entrenador.nombre }}
+          </h1>
+          <p class="mt-4 text-xl md:text-2xl font-light text-white">
+            {{ entrenador.descripcion }}
+          </p>
+        </div>
+      </div>
+      <div class="flex">
+        <p class="max-w-xl mx-auto av-light-gray">
+          En el Aguaverde únicamente contamos con entrenadores de alto prestigio
+          nacional y con titulaciones requeridas por la Federación Española de
+          Triatlón
         </p>
       </div>
     </div>
@@ -60,10 +83,10 @@ export default {
 }
 
 .tes-card > img {
-  border: 9px solid #fff;
+  border: 10px solid #282a31;
   border-radius: 9999px;
   height: 12rem;
-  margin: -4rem auto 0.5rem;
+  margin: -8rem auto 0.5rem;
   width: 12rem;
 }
 
