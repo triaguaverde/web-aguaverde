@@ -3,34 +3,35 @@ nombre: " ¿Cuánto cuesta la cuota anual?"
 layout: feature
 pagina: precios
 ---
-# ¿Cuánto cuesta la cuota anual?
+# La cuota más baja de Madrid
 
-Para la temporada 2021/2022 el Club Triatlón Aguaverde cuenta con **dos tipos de cuotas** que se adaptan perfectamente a tus necesidades. Ambas tienen validez anual, de septiembre a septiembre.
+La cuota de socio tiene validez anual, de septiembre a septiembre, y es de **tan sólo 35€/año**.
 
-Por una parte ofrecemos la **cuota básica**, dirigida a los socios que quieren mantener relación con el club y participar en los eventos que organizamos, pero no entrenan con nosotros en la piscina o siguen nuestro plan de entrenamiento.
+# Elige tu plan de entrenamiento
 
-Por otra parte ofrecemos la **cuota absoluta**, con la que tendrás acceso a todos los servicios que el Club Triatlon Aguaverde ofrece. 
+## PLAN BÁSICO (35€/año)
 
-Además de la cuota, en función de tus objetivos, puedes hacer con nosotros tus entrenamientos de natación, y acceder a los distintos planes de entrenamiento que seguimos en Training Peaks, para corta y larga distancia. No dudes en consultarnos para que podamos ofrecerte el plan que mejor se ajuste a tus necesidades.
-
-A continuación se describen en detalle qué servicios se ofrecen con cada una de las cuotas:
-
-## [](https://aguaverde.org/info/precio#cuota-absoluta-70%E2%82%AC)CUOTA ABSOLUTA (70€)
-
-* Posibilidad de entrenar en el grupo de natación en la piscina concertada por el club (Marqués De Samaranch). Existen diferentes niveles y 2 horarios (21h y 22 h).
-* Participar en los entrenamientos conjuntos que se organizan específicamente para socios.
-* Subvención a pruebas: Campeonato Du/Tri Regional y Nacional, por equipos e individuales.
-* Tramitación de inscripciones a pruebas señaladas por el club y posibilidad de tramitación de la licencia federativa a través del club. (\*\*)
-* Múltiples descuentos en material deportivo y tiendas especializadas.
-* Acudir con un gran equipo a eventos, viajes, concentraciones…
-
-## [](https://aguaverde.org/info/precio#cuota-b%C3%81sica-35%E2%82%AC)CUOTA BÁSICA (35€)
+Por sólo 35€/año (menos de 3€/mes!) todos los socios tienen acceso al plan básico de entrenamiento. Esto incluye:
 
 * Participar en los entrenamientos conjuntos que se organizan específicamente para socios.
-* Tramitación de inscripciones a pruebas señaladas por el club y posibilidad de tramitar la licencia federativa a través del club. (\*\*)
-* Acudir con un gran equipo a eventos, viajes, concentraciones
-* Múltiples descuentos en material deportivo y tiendas especializadas.
+* Acceso a la sección exclusiva en el foro donde puedes encontrar planes de entrenamiento para distintas modalidades
 
-Somos una asociación deportiva sin ánimo de lucro: **las cuotas se reinvierten en los socios**. No tenemos matrícula, nos preocupa el deporte y queremos poner nuestro granito de arena en fomentarlo.
+## PLAN ACTIVA (15€/mes)
 
-*(\*\*) El importe de la licencia será a cargo del federado. Al darse de alta por el club la federación hace un descuento en el precio de la licencia.*
+Como ampliación del plan Básico, para los socios que entrenan más en serio y participan en varias competiciones al año, tenemos un plan de entrenamiento que permite a los entrenadores hacer un seguimiento personalizado en Training Peaks, así como un grupo dedicado de Whatsapp.
+
+Con este plan, tendrás cada día en tu cuenta de usuario de Training Peaks el entrenamiento del día, y te será muy sencillo hacer seguimiento de tu estado de forma y tus objetivos.
+
+## PLAN ACTIVA PLUS (25€/mes)
+
+Especialmente diseñado para los atletas de larga distancia, para los que el plan Básico puede quedarse corto. Este plan es absolutamente personalizado, de forma que el entrenador hará la planificación en función de los objetivos concretos de cada atleta.
+
+Cada día en tu cuenta de usuario de Training Peaks tendrás el entrenamiento del día, y **sólo tendrás que preocuparte de eso: entrenar.**
+
+## PISCINA (15€/mes)
+
+El coste total del entrenamiento en la piscina depende de los días que acudas al entrenamiento dirigido, a partir de **15€/mes por un día de entrenamiento. Nadie más ofrece tanto por tan poco.**
+
+También existe, gracias a la cesión que tenemos con las instalaciones municipales, la posibilidad de nadar por libre en los horarios que tenemos asignados. Infórmate si estás interesado en esta modalidad.
+
+*\*La cuota municipal para el acceso a las instalaciones es aparte, y se pagará anualmente de acuerdo a las tarifas que establezca el Ayuntamiento de Madrid cada temporada.*
