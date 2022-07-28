@@ -5,7 +5,7 @@ pagina: precios
 ---
 # La cuota más baja de Madrid
 
-La cuota de socio tiene validez anual, de septiembre a septiembre, y es de **tan sólo 35€/año**.
+## La cuota de socio tiene validez anual, de septiembre a septiembre, y es de **tan sólo 35€/año**.
 
 # Elige tu plan de entrenamiento
 
