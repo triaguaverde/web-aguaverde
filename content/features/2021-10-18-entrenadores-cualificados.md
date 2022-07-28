@@ -1,7 +1,6 @@
 ---
 layout: feature
 title: Entrenadores cualificados
-description: En el Aguaverde únicamente contamos con entrenadores de alto
-  prestigio nacional y con titulaciones requeridas por la Federación Española de
-  Triatlón
+description: Entrenadores de alto prestigio nacional y por supuesto con las
+  titulaciones requeridas por la Federación Española de Triatlón
 ---
