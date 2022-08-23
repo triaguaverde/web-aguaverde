@@ -14,12 +14,12 @@
           pt-10
           pb-6
           text-white text-center text-xs
-          md:text-2xl
+          md:text-sm
         "
       >
         Hecho por
         <a href="//twitter.com/manuelregidor" class="font-bold"
-          >@manuelregidor</a
+          >Manuel Regidor</a
         >
         y
         <a

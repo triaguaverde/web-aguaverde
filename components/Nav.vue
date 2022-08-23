@@ -1,8 +1,8 @@
 <template>
-  <div class="fondo shadow-sm h-24 p-4 px-4 md:px-10 items-center">
-    <div class="flex">
+  <div class="fondo shadow-sm h-24 px-4 md:px-0 items-center">
+    <div class="flex bg-av-dark-gray pt-3">
       <div class="flex-1"></div>
-      <div class="hidden md:inline-flex mt-0">
+      <div class="hidden md:inline-flex mt-0 mb-0">
         <nuxtLink to="/info" class="option">Info</nuxtLink>
         <nuxtLink to="/contacto" class="option">Contacto</nuxtLink>
         <nuxtLink to="/blog" class="option">Noticias</nuxtLink>
@@ -14,13 +14,16 @@
           href="https://www.instagram.com/triatlonaguaverde/"
           target="_blank"
         >
-          <img src="../assets/logos/instagram.svg" width="40" class="sn"
+          <img src="../assets/logos/instagram.png" width="35" class="sn"
         /></a>
         <a href="https://www.facebook.com/triaguaverde/" target="_blank"
-          ><img src="../assets/logos/facebook.svg" width="40" class="sn"
+          ><img
+            src="../assets/logos/facebook.png"
+            width="35"
+            class="sn bg-white rounded-lg"
         /></a>
         <a href="https://twitter.com/triaguaverde" target="_blank"
-          ><img src="../assets/logos/twitter.svg" width="40" class="sn"
+          ><img src="../assets/logos/twitter.svg" width="35" class="sn"
         /></a>
       </div>
     </div>
@@ -62,6 +65,11 @@ export default {}
   height: 700px;
   background-size: cover;
 }
+
+.option {
+  @apply text-white md:text-2xl align-middle mx-6 mt-2 mb-4;
+}
+
 .opt-mb {
   @apply mx-3 text-sm md:text-xl text-white hover:text-gray-900 my-auto cursor-pointer;
 }
@@ -70,6 +78,6 @@ export default {}
 }
 
 .sn {
-  @apply cursor-pointer mr-6;
+  @apply cursor-pointer mr-6  my-1;
 }
 </style>
