@@ -40,16 +40,17 @@
           <h1 class="text-2xl md:text-4xl font-bold text-av-green-s mb-2 mt-4">
             {{ entrenador.nombre }}
           </h1>
-          <p class="mt-4 text-xl md:text-2xl font-light text-white">
+          <p class="mt-4 text-xl md:text-2xl text-white font-light">
             {{ entrenador.descripcion }}
           </p>
         </div>
       </div>
       <div class="flex">
-        <p class="max-w-xl mx-auto av-light-gray">
-          En el Aguaverde únicamente contamos con entrenadores de alto prestigio
-          nacional y con titulaciones requeridas por la Federación Española de
-          Triatlón
+        <p
+          class="max-w-xl mx-auto text-white font-light text-sm md:text-lg z-10"
+        >
+          Contamos con entrenadores de alto prestigio nacional y con
+          titulaciones requeridas por la Federación Española de Triatlón
         </p>
       </div>
     </div>

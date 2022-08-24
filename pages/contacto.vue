@@ -1,10 +1,16 @@
 <template>
   <div>
-    <Nav />
+    <Nav hideImage />
     <Contacto />
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      hideImage: true,
+    }
+  },
+}
 </script>

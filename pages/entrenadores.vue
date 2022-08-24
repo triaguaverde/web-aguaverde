@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Nav />
+    <Nav hideImage />
     <Informacion :section="SECTIONS.entrenadores" />
   </div>
 </template>

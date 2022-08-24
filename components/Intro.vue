@@ -3,7 +3,15 @@
     <transition name="fade">
       <h1
         :key="current"
-        class="text-4xl md:text-6xl font-bold text-av-dark-gray m-0"
+        class="
+          text-4xl
+          self-center
+          md:text-6xl
+          font-bold
+          text-av-dark-gray
+          mt-2
+          md:m-0
+        "
       >
         {{ current }}
       </h1>

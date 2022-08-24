@@ -6,13 +6,18 @@
         :key="feature.titulo"
         class="
           text-center
+          p-4
+          px-6
           md:p-6 md:px-8 md:mx-4
           my-10
+          w-11/12
+          mx-auto
           md:my-16 md:w-1/4
           bg-white
           rounded-lg
           justify-center
           flex
+          font-light
           bg-opacity-90
         "
       >
