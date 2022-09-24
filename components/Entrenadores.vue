@@ -29,10 +29,12 @@
             relative
             text-center
             p-10
-            pb-16
-            md:w-2/5
+            pb-10
+            md:pb-16 md:w-2/5
             tes-card
             m-8
+            mb-16
+            md:mb-8
             shadow-xl
           "
         >
@@ -40,7 +42,7 @@
           <h1 class="text-2xl md:text-4xl font-bold text-av-green-s mb-2 mt-4">
             {{ entrenador.nombre }}
           </h1>
-          <p class="mt-4 text-xl md:text-2xl text-white font-light">
+          <p class="mt-4 text-md md:text-2xl text-white font-light text-left">
             {{ entrenador.descripcion }}
           </p>
         </div>

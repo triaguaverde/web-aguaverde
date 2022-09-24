@@ -4,25 +4,21 @@
     :class="{ 'h-24 fondo': !hideImage }"
   >
     <div class="flex bg-av-dark-gray pt-3 md:pb-3">
-      <div v-if="!hideImage" class="md:flex-1"></div>
-      <div v-if="hideImage" class="hidden md:flex-1">
-        <nuxtLink to="/" class=""
-          ><img
-            src="../assets/logos/eusebia.png"
-            width="50"
-            class="left-0 m-0 ml-3 mb-1"
-        /></nuxtLink>
-      </div>
-
-      <div class="md:inline-flex mt-0 mb-0">
-        <div class="bg-white justify-center text-center flex" v-if="hideImage">
-          <img
-            src="../assets/logos/logo.jpg"
-            width="120"
-            class="mx-auto my-2"
-          />
+      <div class="md:inline-flex mt-0 mb-0 w-full">
+        <div class="justify-center text-center flex-1" v-if="hideImage">
+          <nuxtLink to="/" class="">
+            <img
+              src="../assets/logos/eusebia.png"
+              width="60"
+              class="mx-auto md:ml-4 my-1 mb:ml-4"
+            />
+          </nuxtLink>
         </div>
-        <div class="hidden md:block self-center">
+
+        <div
+          class="hidden md:block self-center"
+          :class="{ 'md:mr-auto': !hideImage }"
+        >
           <nuxtLink to="/info" class="option">Info</nuxtLink>
           <nuxtLink to="/contacto" class="option">Contacto</nuxtLink>
           <nuxtLink to="/blog" class="option">Noticias</nuxtLink>
@@ -51,22 +47,22 @@
             </div>
           </div>
         </div>
-        <div class="hidden md:flex">
+        <div class="hidden md:flex self-center">
           <a
             class="ml-4"
             href="https://www.instagram.com/triatlonaguaverde/"
             target="_blank"
           >
-            <img src="../assets/logos/instagram.png" width="35" class="sn"
+            <img src="../assets/logos/instagram.png" width="28" class="sn"
           /></a>
           <a href="https://www.facebook.com/triaguaverde/" target="_blank"
             ><img
               src="../assets/logos/facebook.png"
-              width="35"
+              width="28"
               class="sn bg-white rounded-lg"
           /></a>
           <a href="https://twitter.com/triaguaverde" target="_blank"
-            ><img src="../assets/logos/twitter.svg" width="35" class="sn"
+            ><img src="../assets/logos/twitter.svg" width="28" class="sn"
           /></a>
         </div>
       </div>

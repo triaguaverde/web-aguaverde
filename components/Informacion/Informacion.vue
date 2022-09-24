@@ -2,7 +2,7 @@
   <div class="md:grid md:grid-cols-5 gap-1 content" v-if="selected">
     <div class="h-full bg-av-bg dots-bg p-12 shadow-sm hidden md:block">
       <div v-for="opt in MENU_OPT" :key="opt.title">
-        <p class="font-bold title text-xl md:text-3xl mb-4">
+        <p class="font-bold text-xl md:text-3xl mb-4 text-av-green-dark">
           {{ opt.title }}
         </p>
         <p
