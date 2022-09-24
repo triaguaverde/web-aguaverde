@@ -7,12 +7,12 @@
       <div class="text-sm md:text-lg mx-auto text-center">
         <div class="text-av-green-s font-bold">
           Los triatletas nos comemos las cookies, pero aqui tienes que
-          aceptarlas
+          aceptarlas.
         </div>
         <div class="text-sm md:text-lg">
           Esta página web utiliza cookies para analizar de forma anónima y
           estadística el uso que haces de la web, mejorar los contenidos y tu
-          experiencia de navegación
+          experiencia de navegación.
         </div>
       </div>
       <div
