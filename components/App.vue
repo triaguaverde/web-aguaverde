@@ -29,6 +29,7 @@
         >
       </div>
     </div>
+    <Cookies class="sticky bottom-0 w-full" />
   </div>
 </template>
 
