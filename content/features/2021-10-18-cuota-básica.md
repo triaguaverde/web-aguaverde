@@ -1,7 +1,6 @@
 ---
 layout: feature
 title: Cuota básica
-description: No somos un club que venda servicios a los socios. Sólo ofrecemos
-  los servicios propios de un entrenamiento al mejor precio posible y sin ánimo
-  de lucro
+description: La cuota más barata de Madrid, y distintos planes de entrenamiento
+  ajustados a todos los objetivos y todos los bolsillos.
 ---
