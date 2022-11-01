@@ -24,7 +24,10 @@
           <nuxtLink to="/blog" class="option">Noticias</nuxtLink>
           <nuxtLink to="/mujer" class="option">Mujer</nuxtLink>
           <nuxtLink to="/cal" class="option">Calendario</nuxtLink>
-          <a href="https://foro.aguaverde.org/" target="_blank" class="option"
+          <a
+            href="https://foro.triatlonaguaverde.org/"
+            target="_blank"
+            class="option"
             >Foro</a
           >
         </div>
