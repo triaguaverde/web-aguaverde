@@ -31,11 +31,9 @@
           "
           @click="sendMail"
         >
-          triatlon@aguaverde.org
+          triatlonaguaverde@gmail.com
         </p>
-        <p class="text-gray-800 text-lg md:text-3xl">
-          o manda un WhatsApp al
-        </p>
+        <p class="text-gray-800 text-lg md:text-3xl">o manda un WhatsApp al</p>
         <p class="gradient text-xl md:text-5xl font-bold">632 098 456</p>
       </div>
     </div>
@@ -46,7 +44,7 @@
 export default {
   methods: {
     sendMail() {
-      window.open('mailto:triatlon@aguaverde.org')
+      window.open('mailto:triatlonaguaverde@gmail.com')
     },
   },
 }
